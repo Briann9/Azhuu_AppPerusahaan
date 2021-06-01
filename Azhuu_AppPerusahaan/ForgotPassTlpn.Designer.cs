@@ -33,16 +33,15 @@ namespace Azhuu_AppPerusahaan
             this.tBoxNoTelp = new System.Windows.Forms.TextBox();
             this.labelMasukkanTlpn = new System.Windows.Forms.Label();
             this.labelForgotPassword = new System.Windows.Forms.Label();
-            this.labelNoTlpnSalah = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonContinue
             // 
-            this.buttonContinue.Location = new System.Drawing.Point(532, 477);
-            this.buttonContinue.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonContinue.Location = new System.Drawing.Point(535, 398);
             this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(242, 28);
+            this.buttonContinue.Size = new System.Drawing.Size(182, 23);
             this.buttonContinue.TabIndex = 35;
             this.buttonContinue.Text = "CONTINUE";
             this.buttonContinue.UseVisualStyleBackColor = true;
@@ -50,20 +49,18 @@ namespace Azhuu_AppPerusahaan
             // 
             // tBoxNoTelp
             // 
-            this.tBoxNoTelp.Location = new System.Drawing.Point(388, 396);
-            this.tBoxNoTelp.Margin = new System.Windows.Forms.Padding(4);
+            this.tBoxNoTelp.Location = new System.Drawing.Point(427, 332);
             this.tBoxNoTelp.Name = "tBoxNoTelp";
-            this.tBoxNoTelp.Size = new System.Drawing.Size(521, 22);
+            this.tBoxNoTelp.Size = new System.Drawing.Size(392, 20);
             this.tBoxNoTelp.TabIndex = 34;
             // 
             // labelMasukkanTlpn
             // 
             this.labelMasukkanTlpn.AutoSize = true;
             this.labelMasukkanTlpn.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMasukkanTlpn.Location = new System.Drawing.Point(553, 363);
-            this.labelMasukkanTlpn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMasukkanTlpn.Location = new System.Drawing.Point(551, 305);
             this.labelMasukkanTlpn.Name = "labelMasukkanTlpn";
-            this.labelMasukkanTlpn.Size = new System.Drawing.Size(204, 29);
+            this.labelMasukkanTlpn.Size = new System.Drawing.Size(160, 23);
             this.labelMasukkanTlpn.TabIndex = 33;
             this.labelMasukkanTlpn.Text = "MASUKAN NO TELP";
             // 
@@ -71,31 +68,28 @@ namespace Azhuu_AppPerusahaan
             // 
             this.labelForgotPassword.AutoSize = true;
             this.labelForgotPassword.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelForgotPassword.Location = new System.Drawing.Point(378, 254);
-            this.labelForgotPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelForgotPassword.Location = new System.Drawing.Point(420, 216);
             this.labelForgotPassword.Name = "labelForgotPassword";
-            this.labelForgotPassword.Size = new System.Drawing.Size(531, 55);
+            this.labelForgotPassword.Size = new System.Drawing.Size(427, 44);
             this.labelForgotPassword.TabIndex = 32;
             this.labelForgotPassword.Text = "Forgot Password";
             // 
-            // labelNoTlpnSalah
+            // labelError
             // 
-            this.labelNoTlpnSalah.AutoSize = true;
-            this.labelNoTlpnSalah.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoTlpnSalah.ForeColor = System.Drawing.Color.Red;
-            this.labelNoTlpnSalah.Location = new System.Drawing.Point(528, 529);
-            this.labelNoTlpnSalah.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNoTlpnSalah.Name = "labelNoTlpnSalah";
-            this.labelNoTlpnSalah.Size = new System.Drawing.Size(241, 24);
-            this.labelNoTlpnSalah.TabIndex = 36;
-            this.labelNoTlpnSalah.Text = "* NOMOR TELEPON SALAH !";
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(532, 440);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(14, 19);
+            this.labelError.TabIndex = 36;
+            this.labelError.Text = "-";
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(13, 13);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.Location = new System.Drawing.Point(10, 11);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(39, 28);
+            this.buttonBack.Size = new System.Drawing.Size(29, 23);
             this.buttonBack.TabIndex = 40;
             this.buttonBack.Text = "<";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -103,15 +97,16 @@ namespace Azhuu_AppPerusahaan
             // 
             // FormForgotPassTlpn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.labelNoTlpnSalah);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonContinue);
             this.Controls.Add(this.tBoxNoTelp);
             this.Controls.Add(this.labelMasukkanTlpn);
             this.Controls.Add(this.labelForgotPassword);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormForgotPassTlpn";
             this.Text = "Forgot Password Telepon";
             this.Load += new System.EventHandler(this.FormForgotPassTlpn_Load);
@@ -126,7 +121,7 @@ namespace Azhuu_AppPerusahaan
         private System.Windows.Forms.TextBox tBoxNoTelp;
         private System.Windows.Forms.Label labelMasukkanTlpn;
         private System.Windows.Forms.Label labelForgotPassword;
-        private System.Windows.Forms.Label labelNoTlpnSalah;
+        private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Button buttonBack;
     }
 }

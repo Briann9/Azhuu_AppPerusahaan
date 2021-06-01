@@ -17,6 +17,8 @@ namespace Azhuu_AppPerusahaan
             InitializeComponent();
         }
 
+        public static string pobusid;
+
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
             try

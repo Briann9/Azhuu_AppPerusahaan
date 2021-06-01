@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="ForgotPassTlpn.Designer.cs">
       <DependentUpon>ForgotPassTlpn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LandingPage.Designer.cs">
+      <DependentUpon>LandingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="NewPassword.cs">
       <SubType>Form</SubType>
@@ -89,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassTlpn.resx">
       <DependentUpon>ForgotPassTlpn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LandingPage.resx">
+      <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPassword.resx">
       <DependentUpon>NewPassword.cs</DependentUpon>
