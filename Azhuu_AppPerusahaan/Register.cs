@@ -69,7 +69,7 @@ namespace Azhuu_AppPerusahaan
 
                 if (ijinregister == 1)
                 {
-                    sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "'.'" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
+                    sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
 
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlConnect.Open();
@@ -129,32 +129,68 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
+                    sqlConnect = new MySqlConnection(connectString);
                     DataTable untukHurufDepan = new DataTable();
 
                     hurufdepan = tBoxNama.Text.Substring(0, 1).ToUpper();
-                    sqlQuery = "select pobus_id, pobus_name from player where player_name like '"+hurufdepan+"'"; // belum bisaaaaaaaaaaaaaa 
+                    sqlQuery = "select pobus_id, pobus_name from po_bus where pobus_name like '"+hurufdepan+"%'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(untukHurufDepan);
 
-                    int jumlahrows = untukHurufDepan.Rows.Count + 1;
+                    
+                    int jumlahrows = untukHurufDepan.Rows.Count - 1;
+                    if(jumlahrows == -1)
+                    {
+                        tBoxID.Text = hurufdepan + "001";
+                    }
+                    else
+                    {
+                        string idterakhir = untukHurufDepan.Rows[jumlahrows]["pobus_id"].ToString();
+                        int angkaterakhir = Convert.ToInt32(idterakhir.Substring(1, 3)) + 1;
 
-                    if(untukHurufDepan.Rows.Count < 10)
-                    {
-                        hurufdepan += "00";
-                        hurufdepan += jumlahrows.ToString();
+                        if (untukHurufDepan.Rows.Count < 10)
+                        {
+                            hurufdepan += "00";
+                            hurufdepan += angkaterakhir;
+                        }
+                        else if (untukHurufDepan.Rows.Count >= 10 && untukHurufDepan.Rows.Count < 100)
+                        {
+                            hurufdepan += "0";
+                            hurufdepan += angkaterakhir;
+                        }
+                        else if (untukHurufDepan.Rows.Count >= 100)
+                        {
+                            hurufdepan += angkaterakhir;
+                        }
+                        tBoxID.Text = hurufdepan;
                     }
-                    else if(untukHurufDepan.Rows.Count >= 10 && untukHurufDepan.Rows.Count < 100)
-                    {
-                        hurufdepan += "0";
-                        hurufdepan += jumlahrows.ToString();
-                    }
-                    else if(untukHurufDepan.Rows.Count >= 100)
-                    {
-                        hurufdepan += jumlahrows.ToString();
-                    }
-                    tBoxID.Text = hurufdepan;
+                    
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tBoxPassword.PasswordChar = '*';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tBoxConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tBoxConfirmPassword.PasswordChar = '*';
             }
             catch (Exception ex)
             {

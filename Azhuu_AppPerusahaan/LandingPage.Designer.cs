@@ -126,6 +126,7 @@
             this.tBoxAlamat.Name = "tBoxAlamat";
             this.tBoxAlamat.Size = new System.Drawing.Size(282, 20);
             this.tBoxAlamat.TabIndex = 50;
+            this.tBoxAlamat.TextChanged += new System.EventHandler(this.tBoxAlamat_TextChanged);
             // 
             // tBoxNomorTlpn
             // 
@@ -135,6 +136,7 @@
             this.tBoxNomorTlpn.Name = "tBoxNomorTlpn";
             this.tBoxNomorTlpn.Size = new System.Drawing.Size(282, 20);
             this.tBoxNomorTlpn.TabIndex = 49;
+            this.tBoxNomorTlpn.TextChanged += new System.EventHandler(this.tBoxNomorTlpn_TextChanged);
             // 
             // tBoxEmail
             // 
@@ -144,6 +146,7 @@
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(282, 20);
             this.tBoxEmail.TabIndex = 48;
+            this.tBoxEmail.TextChanged += new System.EventHandler(this.tBoxEmail_TextChanged);
             // 
             // tBoxNama
             // 
@@ -153,6 +156,7 @@
             this.tBoxNama.Name = "tBoxNama";
             this.tBoxNama.Size = new System.Drawing.Size(282, 20);
             this.tBoxNama.TabIndex = 47;
+            this.tBoxNama.TextChanged += new System.EventHandler(this.tBoxNama_TextChanged);
             // 
             // tBoxID
             // 
@@ -182,9 +186,11 @@
             this.butDelete.TabIndex = 57;
             this.butDelete.Text = "Delete Account";
             this.butDelete.UseVisualStyleBackColor = true;
+            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
             // butSave
             // 
+            this.butSave.Enabled = false;
             this.butSave.Location = new System.Drawing.Point(1071, 496);
             this.butSave.Name = "butSave";
             this.butSave.Size = new System.Drawing.Size(113, 23);

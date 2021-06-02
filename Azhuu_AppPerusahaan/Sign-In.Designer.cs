@@ -37,33 +37,34 @@ namespace Azhuu_AppPerusahaan
             this.labelHereRegister = new System.Windows.Forms.Label();
             this.labelDontHaveAcc = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tBoxEmail
             // 
-            this.tBoxEmail.ForeColor = System.Drawing.Color.Gray;
+            this.tBoxEmail.ForeColor = System.Drawing.Color.Black;
             this.tBoxEmail.Location = new System.Drawing.Point(872, 243);
-            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(282, 20);
             this.tBoxEmail.TabIndex = 3;
-            this.tBoxEmail.Text = " Email";
             // 
             // tBoxPassword
             // 
-            this.tBoxPassword.ForeColor = System.Drawing.Color.Gray;
-            this.tBoxPassword.Location = new System.Drawing.Point(872, 279);
-            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxPassword.ForeColor = System.Drawing.Color.Black;
+            this.tBoxPassword.Location = new System.Drawing.Point(872, 293);
+            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxPassword.Name = "tBoxPassword";
             this.tBoxPassword.Size = new System.Drawing.Size(282, 20);
             this.tBoxPassword.TabIndex = 6;
-            this.tBoxPassword.Text = " Password";
+            this.tBoxPassword.TextChanged += new System.EventHandler(this.tBoxPassword_TextChanged);
             // 
             // buttonLogIn
             // 
             this.buttonLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogIn.Location = new System.Drawing.Point(991, 380);
-            this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(163, 24);
             this.buttonLogIn.TabIndex = 9;
@@ -75,7 +76,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonForgotPassword.Location = new System.Drawing.Point(991, 414);
-            this.buttonForgotPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonForgotPassword.Margin = new System.Windows.Forms.Padding(2);
             this.buttonForgotPassword.Name = "buttonForgotPassword";
             this.buttonForgotPassword.Size = new System.Drawing.Size(163, 24);
             this.buttonForgotPassword.TabIndex = 10;
@@ -88,7 +89,7 @@ namespace Azhuu_AppPerusahaan
             this.labelError.AutoSize = true;
             this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(869, 317);
+            this.labelError.Location = new System.Drawing.Point(869, 331);
             this.labelError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(13, 17);
@@ -125,11 +126,31 @@ namespace Azhuu_AppPerusahaan
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(869, 219);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Email :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(869, 278);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Password :";
+            // 
             // FormSignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.labelHereRegister);
             this.Controls.Add(this.labelDontHaveAcc);
@@ -138,7 +159,7 @@ namespace Azhuu_AppPerusahaan
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.tBoxPassword);
             this.Controls.Add(this.tBoxEmail);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSignIn";
             this.Text = "Sign-In";
             this.Load += new System.EventHandler(this.FormSignIn_Load);
@@ -157,5 +178,7 @@ namespace Azhuu_AppPerusahaan
         private System.Windows.Forms.Label labelHereRegister;
         private System.Windows.Forms.Label labelDontHaveAcc;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

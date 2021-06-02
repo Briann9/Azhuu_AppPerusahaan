@@ -27,6 +27,18 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonLogIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 int cekemail = 0;
                 int cekpassword = 0;
 
@@ -50,7 +62,7 @@ namespace Azhuu_AppPerusahaan
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtpassword);
 
-                if (dtpassword.Rows.Count == 1) 
+                if (dtpassword.Rows.Count == 1)
                 {
                     cekpassword = 1;
                 }
@@ -66,30 +78,19 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-                    DataTable ambilID = new DataTable();
-                    sqlQuery = "select pobus_id, pobus_email from po_bus where pobus_email = '"+tBoxEmail.Text+"'";
+                    this.Hide();
+                    DataTable pobusid = new DataTable();
+                    sqlConnect = new MySqlConnection(connectString);
+                    sqlQuery = "select pobus_id from po_bus where pobus_email = '"+tBoxEmail.Text+"'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(ambilID);
+                    sqlAdapter.Fill(pobusid);
 
-                    FormWelcome.pobusid = ambilID.Rows[0]["pobus_id"].ToString();
-
-                    this.Hide();
+                    FormWelcome.pobusid = pobusid.Rows[0]["pobus_id"].ToString();
                     var landing = new LandingPage();
                     landing.ShowDialog();
+
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void buttonLogIn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
             }
             catch (Exception ex)
             {
@@ -128,6 +129,18 @@ namespace Azhuu_AppPerusahaan
             try
             {
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tBoxPassword.PasswordChar = '*';
             }
             catch (Exception ex)
             {

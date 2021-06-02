@@ -56,7 +56,7 @@ namespace Azhuu_AppPerusahaan
             this.tBoxID.Enabled = false;
             this.tBoxID.ForeColor = System.Drawing.Color.Black;
             this.tBoxID.Location = new System.Drawing.Point(1042, 120);
-            this.tBoxID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxID.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxID.Name = "tBoxID";
             this.tBoxID.Size = new System.Drawing.Size(127, 20);
             this.tBoxID.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxNama.ForeColor = System.Drawing.Color.Black;
             this.tBoxNama.Location = new System.Drawing.Point(887, 161);
-            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNama.Name = "tBoxNama";
             this.tBoxNama.Size = new System.Drawing.Size(282, 20);
             this.tBoxNama.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxEmail.ForeColor = System.Drawing.Color.Black;
             this.tBoxEmail.Location = new System.Drawing.Point(887, 208);
-            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(282, 20);
             this.tBoxEmail.TabIndex = 2;
@@ -84,7 +84,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxNomorTlpn.ForeColor = System.Drawing.Color.Black;
             this.tBoxNomorTlpn.Location = new System.Drawing.Point(887, 258);
-            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNomorTlpn.Name = "tBoxNomorTlpn";
             this.tBoxNomorTlpn.Size = new System.Drawing.Size(282, 20);
             this.tBoxNomorTlpn.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxAlamat.ForeColor = System.Drawing.Color.Black;
             this.tBoxAlamat.Location = new System.Drawing.Point(887, 310);
-            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxAlamat.Name = "tBoxAlamat";
             this.tBoxAlamat.Size = new System.Drawing.Size(282, 20);
             this.tBoxAlamat.TabIndex = 4;
@@ -102,25 +102,27 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxPassword.ForeColor = System.Drawing.Color.Black;
             this.tBoxPassword.Location = new System.Drawing.Point(887, 360);
-            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxPassword.Name = "tBoxPassword";
             this.tBoxPassword.Size = new System.Drawing.Size(282, 20);
             this.tBoxPassword.TabIndex = 5;
+            this.tBoxPassword.TextChanged += new System.EventHandler(this.tBoxPassword_TextChanged);
             // 
             // tBoxConfirmPassword
             // 
             this.tBoxConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tBoxConfirmPassword.Location = new System.Drawing.Point(887, 412);
-            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxConfirmPassword.Name = "tBoxConfirmPassword";
             this.tBoxConfirmPassword.Size = new System.Drawing.Size(282, 20);
             this.tBoxConfirmPassword.TabIndex = 6;
+            this.tBoxConfirmPassword.TextChanged += new System.EventHandler(this.tBoxConfirmPassword_TextChanged);
             // 
             // buttonRegister
             // 
             this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegister.Location = new System.Drawing.Point(963, 513);
-            this.buttonRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(163, 26);
             this.buttonRegister.TabIndex = 8;
@@ -257,7 +259,7 @@ namespace Azhuu_AppPerusahaan
             this.Controls.Add(this.tBoxEmail);
             this.Controls.Add(this.tBoxNama);
             this.Controls.Add(this.tBoxID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormRegister";
             this.Text = "Register";
             this.Load += new System.EventHandler(this.FormRegister_Load);
