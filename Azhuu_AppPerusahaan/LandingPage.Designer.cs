@@ -54,6 +54,7 @@
             this.butVehicle.TabIndex = 0;
             this.butVehicle.Text = "Vehicle List";
             this.butVehicle.UseVisualStyleBackColor = true;
+            this.butVehicle.Click += new System.EventHandler(this.butVehicle_Click);
             // 
             // butRute
             // 

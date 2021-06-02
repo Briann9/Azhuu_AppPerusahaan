@@ -114,11 +114,13 @@ namespace Azhuu_AppPerusahaan
                     sqlConnect.Close();
                     MessageBox.Show("Akun Telah Di Hapus!");
 
-                    //delete rute
-                    //delete transaksi
-                    //delete semua yang berhubungan dengan pobus_id
-
-
+                    //delete di PO_Bus
+                    //delete di vehicle
+                    //delete di airport_pobus
+                    //delete di rute
+                    //delete di pesan_transaksi
+                    //delete di transaksi_penumpang
+                    
 
                     this.Close();
 
@@ -130,9 +132,19 @@ namespace Azhuu_AppPerusahaan
                     
                 }
 
-                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-
+        private void butVehicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var kendaraan = new VehicleList();
+                kendaraan.ShowDialog();
             }
             catch (Exception ex)
             {

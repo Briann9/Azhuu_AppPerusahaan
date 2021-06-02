@@ -88,6 +88,7 @@ namespace Azhuu_AppPerusahaan
             this.tBoxNomorTlpn.Name = "tBoxNomorTlpn";
             this.tBoxNomorTlpn.Size = new System.Drawing.Size(282, 20);
             this.tBoxNomorTlpn.TabIndex = 3;
+            this.tBoxNomorTlpn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBoxNomorTlpn_KeyPress);
             // 
             // tBoxAlamat
             // 

@@ -197,5 +197,13 @@ namespace Azhuu_AppPerusahaan
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void tBoxNomorTlpn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
