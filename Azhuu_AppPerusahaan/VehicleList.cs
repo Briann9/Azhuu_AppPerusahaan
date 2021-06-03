@@ -76,29 +76,30 @@ namespace Azhuu_AppPerusahaan
                 int jumlahrows = untukIDkendaraan.Rows.Count - 1;
                 if (jumlahrows == -1)
                 {
-                    tboxV_ID.Text = depanID + "001C" + tboxCapacity.Text;
+                    tboxV_ID.Text = depanID + "001C" + tboxCapacity.Text.ToString();
                 }
                 else
                 {
                     string idterakhir = untukIDkendaraan.Rows[jumlahrows]["v_id"].ToString();
                     int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3) + 1);
+                    string angka = angkaterakhir.ToString();
 
                     if (untukIDkendaraan.Rows.Count < 10)
                     {
                         depanID += "00";
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += angka;
                     }
                     else if (untukIDkendaraan.Rows.Count >= 10 && untukIDkendaraan.Rows.Count < 100)
                     {
                         depanID += "0";
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += angka;
                     }
                     else if (untukIDkendaraan.Rows.Count >= 100)
                     {
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += angka;
                     }
                     tboxV_ID.Text = depanID;
                 }
@@ -112,7 +113,8 @@ namespace Azhuu_AppPerusahaan
         
         private void tboxCapacity_TextChanged(object sender, EventArgs e)
         {
-            untukID();
+
+            
         }
 
         private void tboxCapacity_KeyPress(object sender, KeyPressEventArgs e)
@@ -121,15 +123,30 @@ namespace Azhuu_AppPerusahaan
             {
                 e.Handled = true;
             }
+
+            untukID();
         }
 
         private void butInsert_Click(object sender, EventArgs e)
         {
             try
             {
+                DataTable dtPlate = new DataTable();
+                sqlQuery = "select v_license from vehicle where v_license = '"+tboxPlate.Text+"'";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtPlate);
+
+                int jumlahplate = dtPlate.Rows.Count;
+                MessageBox.Show(jumlahplate.ToString());
+
                 if(tboxV_ID.Text == "" || tboxBrand.Text == "" || cboxType.SelectedIndex == -1 || tboxCapacity.Text == "" || tboxPlate.Text == "")
                 {
                     labError.Text = "Ada data yang kosong!";
+                }
+                else if(jumlahplate != 0)
+                {
+                    labError.Text = "Kendaraan sudah di Input";
                 }
                 else
                 {
@@ -149,6 +166,12 @@ namespace Azhuu_AppPerusahaan
                     sqlAdapter.Fill(dtV_List);
 
                     dgvVList.DataSource = dtV_List;
+
+                    tboxV_ID.Text = "";
+                    tboxBrand.Text = "";
+                    cboxType.SelectedIndex = -1;
+                    tboxCapacity.Text = "";
+                    tboxPlate.Text = "";
 
                 }
             }
