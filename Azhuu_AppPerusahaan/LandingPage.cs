@@ -118,8 +118,11 @@ namespace Azhuu_AppPerusahaan
                     //delete di vehicle
                     //delete di airport_pobus
                     //delete di rute
+
+
                     //delete di pesan_transaksi
-                    //delete di transaksi_penumpang
+                    //delete logical dulu, trus kasi peringatan di my order users "transaksi di batalkan oleh perusahaan", klik 'ok' baru delete physical
+                    //delete di transaksi_penumpang -> delete logical dulu, physical ngikut di pesan_transaksi
                     
 
                     this.Close();
@@ -145,6 +148,19 @@ namespace Azhuu_AppPerusahaan
             {
                 var kendaraan = new VehicleList();
                 kendaraan.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void butRute_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var rut = new RuteList();
+                rut.ShowDialog();
             }
             catch (Exception ex)
             {

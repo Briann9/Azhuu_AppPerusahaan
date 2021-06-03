@@ -54,6 +54,7 @@
             this.dgvVList.Name = "dgvVList";
             this.dgvVList.Size = new System.Drawing.Size(419, 553);
             this.dgvVList.TabIndex = 0;
+            this.dgvVList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVList_CellClick);
             // 
             // label1
             // 
@@ -154,12 +155,14 @@
             // 
             // butDelete
             // 
+            this.butDelete.Enabled = false;
             this.butDelete.Location = new System.Drawing.Point(678, 431);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(94, 23);
             this.butDelete.TabIndex = 13;
             this.butDelete.Text = "Delete Vehicle";
             this.butDelete.UseVisualStyleBackColor = true;
+            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
             // butBack
             // 

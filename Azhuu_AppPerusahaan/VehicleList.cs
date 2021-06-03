@@ -23,6 +23,7 @@ namespace Azhuu_AppPerusahaan
         string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
+        string IDdelete;
         private void VehicleList_Load(object sender, EventArgs e)
         {
             try
@@ -38,7 +39,7 @@ namespace Azhuu_AppPerusahaan
                 sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtV_List = new DataTable();
-                sqlQuery = "select v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtV_List);
@@ -81,27 +82,30 @@ namespace Azhuu_AppPerusahaan
                 else
                 {
                     string idterakhir = untukIDkendaraan.Rows[jumlahrows]["v_id"].ToString();
-                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3) + 1);
+                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3)) + 1;
                     string angka = angkaterakhir.ToString();
 
                     if (untukIDkendaraan.Rows.Count < 10)
                     {
                         depanID += "00";
-                        depanID += "C";
                         depanID += angka;
+                        depanID += "C";
+                        depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 10 && untukIDkendaraan.Rows.Count < 100)
                     {
                         depanID += "0";
-                        depanID += "C";
                         depanID += angka;
+                        depanID += "C";
+                        depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 100)
                     {
-                        depanID += "C";
                         depanID += angka;
+                        depanID += "C";
+                        depanID += tboxCapacity.Text.ToString();
                     }
-                    tboxV_ID.Text = depanID;
+                    tboxV_ID.Text = depanID.ToString();
                 }
             }
         }
@@ -113,8 +117,7 @@ namespace Azhuu_AppPerusahaan
         
         private void tboxCapacity_TextChanged(object sender, EventArgs e)
         {
-
-            
+            untukID();
         }
 
         private void tboxCapacity_KeyPress(object sender, KeyPressEventArgs e)
@@ -124,7 +127,6 @@ namespace Azhuu_AppPerusahaan
                 e.Handled = true;
             }
 
-            untukID();
         }
 
         private void butInsert_Click(object sender, EventArgs e)
@@ -160,7 +162,7 @@ namespace Azhuu_AppPerusahaan
                     sqlConnect = new MySqlConnection(connectString);
 
                     DataTable dtV_List = new DataTable();
-                    sqlQuery = "select v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                    sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtV_List);
@@ -178,6 +180,64 @@ namespace Azhuu_AppPerusahaan
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvVList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                IDdelete = dgvVList.Rows[e.RowIndex].Cells["Vehicle ID"].Value.ToString();
+                butDelete.Enabled = true;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void butDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Remove this Vehicle?", "Vehicle Delete", MessageBoxButtons.YesNo);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    // di cek dulu adakah rute yang menggunakan v_id tersebut, kalau ada 
+                    // di kasih pilihan, ganti kendaraan atau insert kendaraan(langsung menggantikan v_id di rute)
+                    // ada cancel
+
+
+
+
+                    sqlConnect = new MySqlConnection(connectString);
+                    sqlQuery = "delete from vehicle where v_id = '" + IDdelete + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Vehicle has been removed!");
+                    IDdelete = "";
+
+                    DataTable dtV_List = new DataTable();
+                    sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtV_List);
+
+                    dgvVList.DataSource = dtV_List;
+                }
+                else
+                {
+                    IDdelete = "";
+                    butDelete.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                sqlConnect.Close();
             }
         }
     }

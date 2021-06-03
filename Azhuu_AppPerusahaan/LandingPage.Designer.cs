@@ -64,6 +64,7 @@
             this.butRute.TabIndex = 1;
             this.butRute.Text = "Rute List";
             this.butRute.UseVisualStyleBackColor = true;
+            this.butRute.Click += new System.EventHandler(this.butRute_Click);
             // 
             // butUpcoming
             // 
