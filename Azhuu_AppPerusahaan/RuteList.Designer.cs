@@ -36,7 +36,6 @@
             this.cboxBandara = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labKeDari = new System.Windows.Forms.Label();
-            this.dTimeBerangkat = new System.Windows.Forms.DateTimePicker();
             this.cboxKendaraan = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +48,10 @@
             this.labError = new System.Windows.Forms.Label();
             this.butDelete = new System.Windows.Forms.Button();
             this.butInsert = new System.Windows.Forms.Button();
+            this.cboxJam = new System.Windows.Forms.ComboBox();
+            this.cboxMenit = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRute)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +108,7 @@
             this.cboxBandara.FormattingEnabled = true;
             this.cboxBandara.Location = new System.Drawing.Point(521, 196);
             this.cboxBandara.Name = "cboxBandara";
-            this.cboxBandara.Size = new System.Drawing.Size(145, 21);
+            this.cboxBandara.Size = new System.Drawing.Size(279, 21);
             this.cboxBandara.TabIndex = 5;
             this.cboxBandara.SelectedIndexChanged += new System.EventHandler(this.cboxBandara_SelectedIndexChanged);
             // 
@@ -127,17 +130,10 @@
             this.labKeDari.TabIndex = 7;
             this.labKeDari.Text = "Ke";
             // 
-            // dTimeBerangkat
-            // 
-            this.dTimeBerangkat.Location = new System.Drawing.Point(521, 314);
-            this.dTimeBerangkat.Name = "dTimeBerangkat";
-            this.dTimeBerangkat.Size = new System.Drawing.Size(145, 20);
-            this.dTimeBerangkat.TabIndex = 8;
-            // 
             // cboxKendaraan
             // 
             this.cboxKendaraan.FormattingEnabled = true;
-            this.cboxKendaraan.Location = new System.Drawing.Point(521, 376);
+            this.cboxKendaraan.Location = new System.Drawing.Point(521, 406);
             this.cboxKendaraan.Name = "cboxKendaraan";
             this.cboxKendaraan.Size = new System.Drawing.Size(145, 21);
             this.cboxKendaraan.TabIndex = 9;
@@ -163,7 +159,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(521, 298);
+            this.label4.Location = new System.Drawing.Point(518, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 12;
@@ -172,7 +168,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(521, 360);
+            this.label5.Location = new System.Drawing.Point(521, 390);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 13;
@@ -180,7 +176,7 @@
             // 
             // tboxPrice
             // 
-            this.tboxPrice.Location = new System.Drawing.Point(521, 474);
+            this.tboxPrice.Location = new System.Drawing.Point(521, 535);
             this.tboxPrice.Name = "tboxPrice";
             this.tboxPrice.Size = new System.Drawing.Size(145, 20);
             this.tboxPrice.TabIndex = 14;
@@ -188,7 +184,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(521, 458);
+            this.label6.Location = new System.Drawing.Point(521, 519);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 15;
@@ -216,7 +212,7 @@
             // labError
             // 
             this.labError.AutoSize = true;
-            this.labError.Location = new System.Drawing.Point(520, 514);
+            this.labError.Location = new System.Drawing.Point(520, 575);
             this.labError.Name = "labError";
             this.labError.Size = new System.Drawing.Size(10, 13);
             this.labError.TabIndex = 20;
@@ -225,7 +221,7 @@
             // butDelete
             // 
             this.butDelete.Enabled = false;
-            this.butDelete.Location = new System.Drawing.Point(655, 546);
+            this.butDelete.Location = new System.Drawing.Point(655, 607);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(94, 23);
             this.butDelete.TabIndex = 19;
@@ -234,7 +230,7 @@
             // 
             // butInsert
             // 
-            this.butInsert.Location = new System.Drawing.Point(523, 546);
+            this.butInsert.Location = new System.Drawing.Point(523, 607);
             this.butInsert.Name = "butInsert";
             this.butInsert.Size = new System.Drawing.Size(91, 23);
             this.butInsert.TabIndex = 18;
@@ -242,11 +238,134 @@
             this.butInsert.UseVisualStyleBackColor = true;
             this.butInsert.Click += new System.EventHandler(this.butInsert_Click);
             // 
+            // cboxJam
+            // 
+            this.cboxJam.FormattingEnabled = true;
+            this.cboxJam.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"});
+            this.cboxJam.Location = new System.Drawing.Point(521, 340);
+            this.cboxJam.Name = "cboxJam";
+            this.cboxJam.Size = new System.Drawing.Size(93, 21);
+            this.cboxJam.TabIndex = 21;
+            // 
+            // cboxMenit
+            // 
+            this.cboxMenit.FormattingEnabled = true;
+            this.cboxMenit.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.cboxMenit.Location = new System.Drawing.Point(669, 340);
+            this.cboxMenit.Name = "cboxMenit";
+            this.cboxMenit.Size = new System.Drawing.Size(93, 21);
+            this.cboxMenit.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(521, 324);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Jam";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(666, 324);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Menit";
+            // 
             // RuteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cboxMenit);
+            this.Controls.Add(this.cboxJam);
             this.Controls.Add(this.labError);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.butInsert);
@@ -259,7 +378,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboxKendaraan);
-            this.Controls.Add(this.dTimeBerangkat);
             this.Controls.Add(this.labKeDari);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxBandara);
@@ -287,7 +405,6 @@
         private System.Windows.Forms.ComboBox cboxBandara;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labKeDari;
-        private System.Windows.Forms.DateTimePicker dTimeBerangkat;
         private System.Windows.Forms.ComboBox cboxKendaraan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -300,5 +417,9 @@
         private System.Windows.Forms.Label labError;
         private System.Windows.Forms.Button butDelete;
         private System.Windows.Forms.Button butInsert;
+        private System.Windows.Forms.ComboBox cboxJam;
+        private System.Windows.Forms.ComboBox cboxMenit;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

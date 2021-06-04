@@ -25,7 +25,7 @@ namespace Azhuu_AppPerusahaan
         string sqlQuery;
 
         string fromto = "F";
-        string time = "00-00"; // cari cara ambil time pake dtp 
+        string time = "00:00";
         private void RuteList_Load(object sender, EventArgs e)
         {
             try
@@ -54,10 +54,8 @@ namespace Azhuu_AppPerusahaan
                 cboxKendaraan.DisplayMember = "Vehicle";
                 cboxKendaraan.ValueMember = "v_id";
                 cboxKendaraan.SelectedIndex = -1;
-                dTimeBerangkat = new DateTimePicker();
-                dTimeBerangkat.Format = DateTimePickerFormat.Custom;
-                dTimeBerangkat.CustomFormat = "HH:mm";
-                dTimeBerangkat.ShowUpDown = true;
+
+
 
                 refreshDGV();
             }
@@ -84,7 +82,7 @@ namespace Azhuu_AppPerusahaan
 
 
                     DataTable dtjumlahrute = new DataTable();
-                    sqlQuery = "select * from rute where airport_id = '"+cboxBandara.ValueMember.ToString()+"'' and rute_fromto = '"+fromto+"' and rute_destination = '"+destina+"'";
+                    sqlQuery = "select rute_id from rute where airport_id = '"+cboxBandara.ValueMember.ToString()+"'' and rute_fromto = '"+fromto+"' and rute_halte = '"+destina+"'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtjumlahrute);
@@ -126,17 +124,12 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                //error ada di sini 
-                // mungkin bakal tambah 1 relation, rute -> pobus
-
-
 
                 sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtListRute = new DataTable();
 
-                // ini nih errornyaaaa
-                sqlQuery = "select rute_id as `ID Rute`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_destination as `Destination`, RUTE_WAKTUBERANGKAT as `Time` from rute where pobus_id = '"+FormWelcome.pobusid+"'";
+                sqlQuery = "select rute_id as `ID Rute`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time` from rute where pobus_id = '"+FormWelcome.pobusid+"'";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListRute);
@@ -214,7 +207,7 @@ namespace Azhuu_AppPerusahaan
 
                 int datacount = cekrute.Rows.Count;
 
-                if(tboxIDRute.Text == "" || time == "00-00" || cboxKendaraan.SelectedIndex == -1 || tboxPrice.Text == "")
+                if(tboxIDRute.Text == "" || time == "00:00" || cboxKendaraan.SelectedIndex == -1 || tboxPrice.Text == "")
                 {
                     MessageBox.Show("Data ada yang kosong!");
                 }

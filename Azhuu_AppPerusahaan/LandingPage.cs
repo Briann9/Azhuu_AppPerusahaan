@@ -154,7 +154,8 @@ namespace Azhuu_AppPerusahaan
 
         private void butRute_Click(object sender, EventArgs e)
         {
-            // open rute
+            var riti = new RuteList();
+            riti.ShowDialog();
         }
     }
 }
