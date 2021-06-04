@@ -38,7 +38,7 @@ namespace Azhuu_AppPerusahaan
                 sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtV_List = new DataTable();
-                sqlQuery = "select v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtV_List);
