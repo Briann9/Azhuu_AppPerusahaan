@@ -270,6 +270,7 @@
             this.cboxJam.Name = "cboxJam";
             this.cboxJam.Size = new System.Drawing.Size(93, 21);
             this.cboxJam.TabIndex = 21;
+            this.cboxJam.SelectedIndexChanged += new System.EventHandler(this.cboxJam_SelectedIndexChanged);
             // 
             // cboxMenit
             // 
@@ -338,6 +339,7 @@
             this.cboxMenit.Name = "cboxMenit";
             this.cboxMenit.Size = new System.Drawing.Size(93, 21);
             this.cboxMenit.TabIndex = 22;
+            this.cboxMenit.SelectedIndexChanged += new System.EventHandler(this.cboxMenit_SelectedIndexChanged);
             // 
             // label8
             // 
