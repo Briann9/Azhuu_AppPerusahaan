@@ -131,14 +131,27 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                if(tboxV_ID.Text == "" || tboxBrand.Text == "" || cboxType.SelectedIndex == -1 || tboxCapacity.Text == "" || tboxPlate.Text == "")
+                DataTable dtPlate = new DataTable();
+                sqlQuery = "select v_license from vehicle where v_license = '" + tboxPlate.Text + "'";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtPlate);
+
+                int jumlahplate = dtPlate.Rows.Count;
+                MessageBox.Show(jumlahplate.ToString());
+
+                if (tboxV_ID.Text == "" || tboxBrand.Text == "" || cboxType.SelectedIndex == -1 || tboxCapacity.Text == "" || tboxPlate.Text == "")
                 {
                     labError.Text = "Ada data yang kosong!";
+                }
+                else if (jumlahplate != 0)
+                {
+                    labError.Text = "Kendaraan sudah di Input";
                 }
                 else
                 {
                     sqlConnect = new MySqlConnection(connectString);
-                    sqlQuery = "insert into vehicle values ('"+tboxV_ID.Text+"','"+FormWelcome.pobusid+"','"+tboxPlate.Text+"','"+cboxType.SelectedItem+"','"+tboxCapacity.Text+"','"+tboxBrand.Text+"','0')";
+                    sqlQuery = "insert into vehicle values ('" + tboxV_ID.Text + "','" + FormWelcome.pobusid + "','" + tboxPlate.Text + "','" + cboxType.SelectedItem + "','" + tboxCapacity.Text + "','" + tboxBrand.Text + "','0')";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlConnect.Open();
                     sqlCommand.ExecuteNonQuery();
@@ -147,12 +160,18 @@ namespace Azhuu_AppPerusahaan
                     sqlConnect = new MySqlConnection(connectString);
 
                     DataTable dtV_List = new DataTable();
-                    sqlQuery = "select v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                    sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtV_List);
 
                     dgvVList.DataSource = dtV_List;
+
+                    tboxV_ID.Text = "";
+                    tboxBrand.Text = "";
+                    cboxType.SelectedIndex = -1;
+                    tboxCapacity.Text = "";
+                    tboxPlate.Text = "";
 
                 }
             }
