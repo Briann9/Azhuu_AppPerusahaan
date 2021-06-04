@@ -68,7 +68,7 @@ namespace Azhuu_AppPerusahaan
 
                 sqlConnect = new MySqlConnection(connectString);
                 DataTable untukIDkendaraan = new DataTable();
-                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "' and substring(v_id,1,1) = '"+hurufdepanmerk+"' ";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(untukIDkendaraan);
