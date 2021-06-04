@@ -180,5 +180,10 @@ namespace Azhuu_AppPerusahaan
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void butDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
