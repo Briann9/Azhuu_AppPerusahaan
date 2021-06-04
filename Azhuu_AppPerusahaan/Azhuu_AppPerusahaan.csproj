@@ -129,6 +129,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,6 +143,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forgot password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11111WEEWWE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slate Gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12QW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Black Glow in the Dark Party Facebook Event Cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11551.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3423432.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\421323416234.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

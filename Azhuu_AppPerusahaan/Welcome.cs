@@ -56,5 +56,10 @@ namespace Azhuu_AppPerusahaan
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void FormWelcome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

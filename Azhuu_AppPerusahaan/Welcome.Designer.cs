@@ -28,67 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelWelcome = new System.Windows.Forms.Label();
             this.buttonSignIn = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelWelcome
-            // 
-            this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWelcome.Location = new System.Drawing.Point(412, 234);
-            this.labelWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(351, 44);
-            this.labelWelcome.TabIndex = 0;
-            this.labelWelcome.Text = "Welcome To Azhuu";
             // 
             // buttonSignIn
             // 
+            this.buttonSignIn.BackColor = System.Drawing.Color.White;
             this.buttonSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSignIn.Location = new System.Drawing.Point(355, 366);
-            this.buttonSignIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSignIn.Location = new System.Drawing.Point(1188, 547);
+            this.buttonSignIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSignIn.Name = "buttonSignIn";
-            this.buttonSignIn.Size = new System.Drawing.Size(163, 44);
+            this.buttonSignIn.Size = new System.Drawing.Size(294, 54);
             this.buttonSignIn.TabIndex = 1;
             this.buttonSignIn.Text = "Sign-In";
-            this.buttonSignIn.UseVisualStyleBackColor = true;
+            this.buttonSignIn.UseVisualStyleBackColor = false;
             this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
             // buttonRegister
             // 
+            this.buttonRegister.BackColor = System.Drawing.Color.White;
             this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegister.Location = new System.Drawing.Point(666, 366);
-            this.buttonRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRegister.Location = new System.Drawing.Point(1188, 423);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(163, 44);
+            this.buttonRegister.Size = new System.Drawing.Size(294, 54);
             this.buttonRegister.TabIndex = 2;
             this.buttonRegister.Text = "Register";
-            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._421323416234;
+            this.pictureBox1.Location = new System.Drawing.Point(-5, -12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1694, 862);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 51;
+            this.pictureBox1.TabStop = false;
             // 
             // FormWelcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonSignIn);
-            this.Controls.Add(this.labelWelcome);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormWelcome";
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.FormWelcome_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Button buttonSignIn;
         private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
