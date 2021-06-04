@@ -54,6 +54,9 @@ namespace Azhuu_AppPerusahaan
         }
         private void untukID()
         {
+            // ada kesalahan di ID, klo tinggal 1 row, ID jadi 001 lagii
+
+
             string hurufdepanmerk;
             string depanID;
 
