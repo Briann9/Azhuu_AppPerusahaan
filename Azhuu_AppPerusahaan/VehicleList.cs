@@ -183,7 +183,60 @@ namespace Azhuu_AppPerusahaan
 
         private void butDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Remove this Vehicle?", "Vehicle Delete", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // di cek dulu adakah rute yang menggunakan v_id tersebut, kalau ada 
+                    // di kasih pilihan, ganti kendaraan atau insert kendaraan(langsung menggantikan v_id di rute)
+                    // ada cancel
 
+
+
+
+                    sqlConnect = new MySqlConnection(connectString);
+                    sqlQuery = "delete from vehicle where v_id = '" + IDdelete + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Vehicle has been removed!");
+                    IDdelete = "";
+
+                    DataTable dtV_List = new DataTable();
+                    sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(dtV_List);
+
+                    dgvVList.DataSource = dtV_List;
+                }
+                else
+                {
+                    IDdelete = "";
+                    butDelete.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                sqlConnect.Close();
+            }
+        }
+
+        private void dgvVList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                IDdelete = dgvVList.Rows[e.RowIndex].Cells["Vehicle ID"].Value.ToString();
+                butDelete.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

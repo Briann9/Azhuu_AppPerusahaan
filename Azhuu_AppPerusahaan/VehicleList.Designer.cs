@@ -57,6 +57,7 @@
             this.dgvVList.RowHeadersWidth = 51;
             this.dgvVList.Size = new System.Drawing.Size(610, 553);
             this.dgvVList.TabIndex = 0;
+            this.dgvVList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVList_CellClick);
             // 
             // label1
             // 
@@ -195,7 +196,7 @@
             // 
             this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._11551;
             this.pictureBox1.Location = new System.Drawing.Point(-4, -10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1270, 700);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
