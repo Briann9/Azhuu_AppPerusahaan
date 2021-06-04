@@ -54,7 +54,7 @@ namespace Azhuu_AppPerusahaan
         {
             string hurufdepanmerk;
             string depanID;
-            
+
 
             if (string.IsNullOrEmpty(tboxBrand.Text) || string.IsNullOrEmpty(tboxCapacity.Text))
             {
@@ -64,11 +64,11 @@ namespace Azhuu_AppPerusahaan
             {
                 hurufdepanmerk = tboxBrand.Text.Substring(0, 1).ToUpper();
                 depanID = FormWelcome.pobusid.Substring(0, 1).ToUpper() + hurufdepanmerk; // 2huruf  3angka urutan + C + kapasitas
-                
+
 
                 sqlConnect = new MySqlConnection(connectString);
                 DataTable untukIDkendaraan = new DataTable();
-                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '"+FormWelcome.pobusid+"'";
+                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(untukIDkendaraan);
@@ -76,31 +76,35 @@ namespace Azhuu_AppPerusahaan
                 int jumlahrows = untukIDkendaraan.Rows.Count - 1;
                 if (jumlahrows == -1)
                 {
-                    tboxV_ID.Text = depanID + "001C" + tboxCapacity.Text;
+                    tboxV_ID.Text = depanID + "001C" + tboxCapacity.Text.ToString();
                 }
                 else
                 {
                     string idterakhir = untukIDkendaraan.Rows[jumlahrows]["v_id"].ToString();
-                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3) + 1);
+                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3)) + 1;
+                    string angka = angkaterakhir.ToString();
 
                     if (untukIDkendaraan.Rows.Count < 10)
                     {
                         depanID += "00";
+                        depanID += angka;
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 10 && untukIDkendaraan.Rows.Count < 100)
                     {
                         depanID += "0";
+                        depanID += angka;
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 100)
                     {
+                        depanID += angka;
                         depanID += "C";
-                        depanID += angkaterakhir;
+                        depanID += tboxCapacity.Text.ToString();
                     }
-                    tboxV_ID.Text = depanID;
+                    tboxV_ID.Text = depanID.ToString();
                 }
             }
         }
