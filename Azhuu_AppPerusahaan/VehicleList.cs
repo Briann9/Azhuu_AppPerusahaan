@@ -23,7 +23,6 @@ namespace Azhuu_AppPerusahaan
         string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
-
         string IDdelete;
         private void VehicleList_Load(object sender, EventArgs e)
         {
@@ -54,10 +53,7 @@ namespace Azhuu_AppPerusahaan
         }
         private void untukID()
         {
-            // ada kesalahan di ID, klo tinggal 1 row, ID jadi 001 lagii
 
-
-            string hurufdepanmerk;
             string depanID;
 
 
@@ -67,17 +63,16 @@ namespace Azhuu_AppPerusahaan
             }
             else
             {
-                hurufdepanmerk = tboxBrand.Text.Substring(0, 1).ToUpper();
-                depanID = FormWelcome.pobusid.Substring(0, 1).ToUpper() + hurufdepanmerk; // 2huruf  3angka urutan + C + kapasitas
+                
+                depanID = FormWelcome.pobusid.Substring(0, 1).ToUpper(); // 2huruf  3angka urutan + C + kapasitas
 
 
                 sqlConnect = new MySqlConnection(connectString);
                 DataTable untukIDkendaraan = new DataTable();
-                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "' and substring(v_id,1,1) = '"+hurufdepanmerk+"' ";
+                sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(untukIDkendaraan);
-
 
                 int jumlahrows = untukIDkendaraan.Rows.Count - 1;
                 if (jumlahrows == -1)
@@ -87,7 +82,7 @@ namespace Azhuu_AppPerusahaan
                 else
                 {
                     string idterakhir = untukIDkendaraan.Rows[jumlahrows]["v_id"].ToString();
-                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(2, 3)) + 1;
+                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(1, 3)) + 1;
                     string angka = angkaterakhir.ToString();
 
                     if (untukIDkendaraan.Rows.Count < 10)
@@ -117,12 +112,26 @@ namespace Azhuu_AppPerusahaan
 
         private void tboxBrand_TextChanged(object sender, EventArgs e)
         {
-            untukID();
+            try
+            {
+                untukID();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-        
+
         private void tboxCapacity_TextChanged(object sender, EventArgs e)
         {
-            untukID();
+            try
+            {
+                untukID();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void tboxCapacity_KeyPress(object sender, KeyPressEventArgs e)
@@ -131,6 +140,7 @@ namespace Azhuu_AppPerusahaan
             {
                 e.Handled = true;
             }
+
         }
 
         private void butInsert_Click(object sender, EventArgs e)
@@ -187,6 +197,20 @@ namespace Azhuu_AppPerusahaan
             }
         }
 
+        private void dgvVList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                IDdelete = dgvVList.Rows[e.RowIndex].Cells["Vehicle ID"].Value.ToString();
+                butDelete.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void butDelete_Click(object sender, EventArgs e)
         {
             try
@@ -228,20 +252,6 @@ namespace Azhuu_AppPerusahaan
             {
                 MessageBox.Show(ex.Message);
                 sqlConnect.Close();
-            }
-        }
-
-        private void dgvVList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                IDdelete = dgvVList.Rows[e.RowIndex].Cells["Vehicle ID"].Value.ToString();
-                butDelete.Enabled = true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
     }
