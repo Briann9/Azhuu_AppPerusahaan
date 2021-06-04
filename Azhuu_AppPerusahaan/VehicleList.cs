@@ -23,6 +23,8 @@ namespace Azhuu_AppPerusahaan
         string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
+
+        string IDdelete;
         private void VehicleList_Load(object sender, EventArgs e)
         {
             try
@@ -72,6 +74,7 @@ namespace Azhuu_AppPerusahaan
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(untukIDkendaraan);
+
 
                 int jumlahrows = untukIDkendaraan.Rows.Count - 1;
                 if (jumlahrows == -1)
