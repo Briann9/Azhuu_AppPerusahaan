@@ -27,6 +27,7 @@ namespace Azhuu_AppPerusahaan
         string fromto = "F";
         string time = "00:00";
 
+        string IDdelete = "";
         private void RuteList_Load(object sender, EventArgs e)
         {
             try
@@ -77,6 +78,7 @@ namespace Azhuu_AppPerusahaan
                 {
                     string destina = tboxDestination.Text.Substring(0, 3).ToUpper();
                     string idd = "";
+                    string pobuss = FormWelcome.pobusid.ToString();
                     sqlConnect = new MySqlConnection(connectString);
 
 
@@ -89,17 +91,18 @@ namespace Azhuu_AppPerusahaan
                     int jumlahrowss = dtjumlahrute.Rows.Count -1;
                     if(jumlahrowss == -1)
                     {
-                        tboxIDRute.Text = cboxBandara.SelectedValue.ToString() + fromto + destina + "001";
+                        tboxIDRute.Text = pobuss + cboxBandara.SelectedValue.ToString() + fromto + destina + "001";
                     }
                     else
                     {
                         string idterakhir = dtjumlahrute.Rows[jumlahrowss]["rute_id"].ToString();
-                        int angkaterakhir = Convert.ToInt32(idterakhir.Substring(7, 3)) + 1;
+                        int angkaterakhir = Convert.ToInt32(idterakhir.Substring(11, 3)) + 1;
                         string angka = angkaterakhir.ToString();
 
                         if(dtjumlahrute.Rows.Count < 10)
                         {
-                            idd = cboxBandara.SelectedValue.ToString();
+                            idd += pobuss;
+                            idd += cboxBandara.SelectedValue.ToString();
                             idd += fromto;
                             idd += destina;
                             idd += "00";
@@ -107,7 +110,8 @@ namespace Azhuu_AppPerusahaan
                         }
                         else if (dtjumlahrute.Rows.Count >= 10 && dtjumlahrute.Rows.Count < 100)
                         {
-                            idd = cboxBandara.SelectedValue.ToString();
+                            idd += pobuss;
+                            idd += cboxBandara.SelectedValue.ToString();
                             idd += fromto;
                             idd += destina;
                             idd += "0";
@@ -115,7 +119,8 @@ namespace Azhuu_AppPerusahaan
                         }
                         else if (dtjumlahrute.Rows.Count >= 100)
                         {
-                            idd = cboxBandara.SelectedValue.ToString();
+                            idd += pobuss;
+                            idd += cboxBandara.SelectedValue.ToString();
                             idd += fromto;
                             idd += destina;
                             idd += angka;
@@ -139,12 +144,14 @@ namespace Azhuu_AppPerusahaan
 
                 DataTable dtListRute = new DataTable();
 
-                sqlQuery = "select rute_id as `ID Rute`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time` from rute where pobus_id = '"+FormWelcome.pobusid+"'";
+                sqlQuery = "select rute_id as `ID Rute`,concat(v_brand,'  /  ',v_jenis,'  [',v_capacity,']') as `Vehicle`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time`, rute_price as `Harga` from rute r, vehicle v where r.pobus_id = '"+FormWelcome.pobusid+"' and r.v_id = v.v_id";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListRute);
 
                 dgvRute.DataSource = dtListRute;
+
+                dgvRute.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             }
             catch (Exception ex)
@@ -263,20 +270,65 @@ namespace Azhuu_AppPerusahaan
         private void cboxJam_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            ////salah broooo
-            //jam = cboxJam.SelectedItem.ToString();
-            //menit = cboxMenit.SelectedItem.ToString();
-
-            //time = jam + ":" + menit;
         }
 
         private void cboxMenit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //// ini juga salah broooo
-            //jam = cboxJam.SelectedItem.ToString();
-            //menit = cboxMenit.SelectedItem.ToString();
 
-            //time = jam + ":" + menit;
+        }
+
+        private void dgvRute_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                IDdelete = dgvRute.Rows[e.RowIndex].Cells["ID Rute"].Value.ToString();
+                butDelete.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void butDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Remove this route?", "Route Delete", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // di cek dulu adakah rute yang menggunakan v_id tersebut, kalau ada 
+                    // di kasih pilihan, ganti kendaraan atau insert kendaraan(langsung menggantikan v_id di rute)
+                    // ada cancel
+
+                    // delete logical pesan transaksi dsb yang berhubungan
+
+
+
+                    sqlConnect = new MySqlConnection(connectString);
+                    sqlQuery = "delete from rute where rute_id = '" + IDdelete + "'";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Route has been removed!");
+                    IDdelete = "";
+
+                    refreshDGV();
+                    butDelete.Enabled = false;
+                }
+                else
+                {
+                    IDdelete = "";
+                    butDelete.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                sqlConnect.Close();
+            }
         }
     }
 }

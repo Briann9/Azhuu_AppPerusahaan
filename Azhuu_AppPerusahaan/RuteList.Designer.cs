@@ -60,21 +60,22 @@
             this.dgvRute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRute.Location = new System.Drawing.Point(53, 102);
             this.dgvRute.Name = "dgvRute";
-            this.dgvRute.Size = new System.Drawing.Size(373, 547);
+            this.dgvRute.Size = new System.Drawing.Size(860, 547);
             this.dgvRute.TabIndex = 0;
+            this.dgvRute.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRute_CellClick);
             // 
             // tboxIDRute
             // 
             this.tboxIDRute.Enabled = false;
-            this.tboxIDRute.Location = new System.Drawing.Point(521, 102);
+            this.tboxIDRute.Location = new System.Drawing.Point(964, 106);
             this.tboxIDRute.Name = "tboxIDRute";
-            this.tboxIDRute.Size = new System.Drawing.Size(88, 20);
+            this.tboxIDRute.Size = new System.Drawing.Size(145, 20);
             this.tboxIDRute.TabIndex = 1;
             // 
             // rbutDari
             // 
             this.rbutDari.AutoSize = true;
-            this.rbutDari.Location = new System.Drawing.Point(521, 147);
+            this.rbutDari.Location = new System.Drawing.Point(964, 151);
             this.rbutDari.Name = "rbutDari";
             this.rbutDari.Size = new System.Drawing.Size(44, 17);
             this.rbutDari.TabIndex = 2;
@@ -86,7 +87,7 @@
             // rbutKe
             // 
             this.rbutKe.AutoSize = true;
-            this.rbutKe.Location = new System.Drawing.Point(628, 147);
+            this.rbutKe.Location = new System.Drawing.Point(1071, 151);
             this.rbutKe.Name = "rbutKe";
             this.rbutKe.Size = new System.Drawing.Size(38, 17);
             this.rbutKe.TabIndex = 3;
@@ -97,7 +98,7 @@
             // 
             // tboxDestination
             // 
-            this.tboxDestination.Location = new System.Drawing.Point(521, 257);
+            this.tboxDestination.Location = new System.Drawing.Point(964, 261);
             this.tboxDestination.Name = "tboxDestination";
             this.tboxDestination.Size = new System.Drawing.Size(145, 20);
             this.tboxDestination.TabIndex = 4;
@@ -106,7 +107,7 @@
             // cboxBandara
             // 
             this.cboxBandara.FormattingEnabled = true;
-            this.cboxBandara.Location = new System.Drawing.Point(521, 196);
+            this.cboxBandara.Location = new System.Drawing.Point(964, 200);
             this.cboxBandara.Name = "cboxBandara";
             this.cboxBandara.Size = new System.Drawing.Size(279, 21);
             this.cboxBandara.TabIndex = 5;
@@ -115,7 +116,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(738, 147);
+            this.label1.Location = new System.Drawing.Point(1181, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 6;
@@ -124,7 +125,7 @@
             // labKeDari
             // 
             this.labKeDari.AutoSize = true;
-            this.labKeDari.Location = new System.Drawing.Point(518, 241);
+            this.labKeDari.Location = new System.Drawing.Point(961, 245);
             this.labKeDari.Name = "labKeDari";
             this.labKeDari.Size = new System.Drawing.Size(20, 13);
             this.labKeDari.TabIndex = 7;
@@ -133,7 +134,7 @@
             // cboxKendaraan
             // 
             this.cboxKendaraan.FormattingEnabled = true;
-            this.cboxKendaraan.Location = new System.Drawing.Point(521, 406);
+            this.cboxKendaraan.Location = new System.Drawing.Point(964, 410);
             this.cboxKendaraan.Name = "cboxKendaraan";
             this.cboxKendaraan.Size = new System.Drawing.Size(145, 21);
             this.cboxKendaraan.TabIndex = 9;
@@ -141,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(521, 83);
+            this.label2.Location = new System.Drawing.Point(964, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 10;
@@ -150,7 +151,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(521, 180);
+            this.label3.Location = new System.Drawing.Point(964, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 11;
@@ -159,7 +160,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(518, 298);
+            this.label4.Location = new System.Drawing.Point(961, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 12;
@@ -168,7 +169,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(521, 390);
+            this.label5.Location = new System.Drawing.Point(964, 394);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 13;
@@ -176,7 +177,7 @@
             // 
             // tboxPrice
             // 
-            this.tboxPrice.Location = new System.Drawing.Point(521, 535);
+            this.tboxPrice.Location = new System.Drawing.Point(964, 539);
             this.tboxPrice.Name = "tboxPrice";
             this.tboxPrice.Size = new System.Drawing.Size(145, 20);
             this.tboxPrice.TabIndex = 14;
@@ -184,7 +185,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(521, 519);
+            this.label6.Location = new System.Drawing.Point(964, 523);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 15;
@@ -212,7 +213,7 @@
             // labError
             // 
             this.labError.AutoSize = true;
-            this.labError.Location = new System.Drawing.Point(520, 575);
+            this.labError.Location = new System.Drawing.Point(963, 579);
             this.labError.Name = "labError";
             this.labError.Size = new System.Drawing.Size(10, 13);
             this.labError.TabIndex = 20;
@@ -221,16 +222,17 @@
             // butDelete
             // 
             this.butDelete.Enabled = false;
-            this.butDelete.Location = new System.Drawing.Point(655, 607);
+            this.butDelete.Location = new System.Drawing.Point(1098, 611);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(94, 23);
             this.butDelete.TabIndex = 19;
             this.butDelete.Text = "Delete Rute";
             this.butDelete.UseVisualStyleBackColor = true;
+            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
             // butInsert
             // 
-            this.butInsert.Location = new System.Drawing.Point(523, 607);
+            this.butInsert.Location = new System.Drawing.Point(966, 611);
             this.butInsert.Name = "butInsert";
             this.butInsert.Size = new System.Drawing.Size(91, 23);
             this.butInsert.TabIndex = 18;
@@ -266,7 +268,7 @@
             "22",
             "23",
             "24"});
-            this.cboxJam.Location = new System.Drawing.Point(521, 340);
+            this.cboxJam.Location = new System.Drawing.Point(964, 344);
             this.cboxJam.Name = "cboxJam";
             this.cboxJam.Size = new System.Drawing.Size(93, 21);
             this.cboxJam.TabIndex = 21;
@@ -276,6 +278,7 @@
             // 
             this.cboxMenit.FormattingEnabled = true;
             this.cboxMenit.Items.AddRange(new object[] {
+            "00",
             "01",
             "02",
             "03",
@@ -335,7 +338,7 @@
             "57",
             "58",
             "59"});
-            this.cboxMenit.Location = new System.Drawing.Point(669, 340);
+            this.cboxMenit.Location = new System.Drawing.Point(1112, 344);
             this.cboxMenit.Name = "cboxMenit";
             this.cboxMenit.Size = new System.Drawing.Size(93, 21);
             this.cboxMenit.TabIndex = 22;
@@ -344,7 +347,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(521, 324);
+            this.label8.Location = new System.Drawing.Point(964, 328);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(26, 13);
             this.label8.TabIndex = 23;
@@ -353,7 +356,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(666, 324);
+            this.label9.Location = new System.Drawing.Point(1109, 328);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 13);
             this.label9.TabIndex = 24;

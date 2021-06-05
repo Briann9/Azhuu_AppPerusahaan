@@ -241,6 +241,8 @@ namespace Azhuu_AppPerusahaan
                     sqlAdapter.Fill(dtV_List);
 
                     dgvVList.DataSource = dtV_List;
+
+                    butDelete.Enabled = false;
                 }
                 else
                 {

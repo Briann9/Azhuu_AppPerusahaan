@@ -160,7 +160,8 @@ namespace Azhuu_AppPerusahaan
 
         private void butUpcoming_Click(object sender, EventArgs e)
         {
-
+            var ipcimingtrip = new UpcomingTrip();
+            ipcimingtrip.ShowDialog();
         }
     }
 }
