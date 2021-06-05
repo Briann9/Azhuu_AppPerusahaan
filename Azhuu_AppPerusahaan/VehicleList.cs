@@ -64,7 +64,7 @@ namespace Azhuu_AppPerusahaan
             else
             {
                 
-                depanID = FormWelcome.pobusid.Substring(0, 1).ToUpper(); // 2huruf  3angka urutan + C + kapasitas
+                depanID = FormWelcome.pobusid.ToString(); // pobus +  V +  3angka urutan + C + kapasitas
 
 
                 sqlConnect = new MySqlConnection(connectString);
@@ -77,30 +77,31 @@ namespace Azhuu_AppPerusahaan
                 int jumlahrows = untukIDkendaraan.Rows.Count - 1;
                 if (jumlahrows == -1)
                 {
-                    tboxV_ID.Text = depanID + "001C" + tboxCapacity.Text.ToString();
+                    tboxV_ID.Text = depanID + "V001C" + tboxCapacity.Text.ToString();
                 }
                 else
                 {
                     string idterakhir = untukIDkendaraan.Rows[jumlahrows]["v_id"].ToString();
-                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(1, 3)) + 1;
+                    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(5, 3)) + 1;
                     string angka = angkaterakhir.ToString();
 
                     if (untukIDkendaraan.Rows.Count < 10)
                     {
-                        depanID += "00";
+                        depanID += "V00";
                         depanID += angka;
                         depanID += "C";
                         depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 10 && untukIDkendaraan.Rows.Count < 100)
                     {
-                        depanID += "0";
+                        depanID += "V0";
                         depanID += angka;
                         depanID += "C";
                         depanID += tboxCapacity.Text.ToString();
                     }
                     else if (untukIDkendaraan.Rows.Count >= 100)
                     {
+                        depanID += "V";
                         depanID += angka;
                         depanID += "C";
                         depanID += tboxCapacity.Text.ToString();

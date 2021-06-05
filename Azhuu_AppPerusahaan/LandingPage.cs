@@ -106,13 +106,6 @@ namespace Azhuu_AppPerusahaan
                 DialogResult dialogResult = MessageBox.Show("Apa anda yakin ingin menghapus akun anda?", "Hapus Akun", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    sqlConnect = new MySqlConnection(connectString);
-                    sqlQuery = "delete from po_bus where pobus_id = '" + tBoxID.Text + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
-                    MessageBox.Show("Akun Telah Di Hapus!");
 
                     //delete di PO_Bus
                     //delete di vehicle
@@ -120,7 +113,13 @@ namespace Azhuu_AppPerusahaan
                     //delete di rute
                     //delete di pesan_transaksi
                     //delete di transaksi_penumpang
+
+
+
+                    sqlQuery = "delete from po_bus where pobus_id = '" + tBoxID.Text + "'";
+                    executenonquery(sqlQuery);
                     
+                    MessageBox.Show("Akun Telah Di Hapus!");
 
                     this.Close();
 
@@ -162,6 +161,14 @@ namespace Azhuu_AppPerusahaan
         {
             var ipcimingtrip = new UpcomingTrip();
             ipcimingtrip.ShowDialog();
+        }
+        private void executenonquery(string query)
+        {
+            string sqlQuery = query;
+            MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnect);
+            sqlConnect.Open();
+            sqlCommand.ExecuteNonQuery();
+            sqlConnect.Close();
         }
     }
 }

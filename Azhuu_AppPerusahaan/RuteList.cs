@@ -144,7 +144,7 @@ namespace Azhuu_AppPerusahaan
 
                 DataTable dtListRute = new DataTable();
 
-                sqlQuery = "select rute_id as `ID Rute`,concat(v_brand,'  /  ',v_jenis,'  [',v_capacity,']') as `Vehicle`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time`, rute_price as `Harga` from rute r, vehicle v where r.pobus_id = '"+FormWelcome.pobusid+"' and r.v_id = v.v_id";
+                sqlQuery = "select rute_id as `ID Rute`,concat(v_brand,'  /  ',v_jenis,'  [',v_capacity,']') as `Vehicle`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time`, rute_price as `Harga` from rute r, vehicle v where v.pobus_id = '"+FormWelcome.pobusid+"' and r.v_id = v.v_id";
                 sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListRute);
@@ -240,7 +240,7 @@ namespace Azhuu_AppPerusahaan
                 else
                 {
                     sqlConnect = new MySqlConnection(connectString);
-                    sqlQuery = "insert into rute values ('"+tboxIDRute.Text+"','"+cboxBandara.SelectedValue.ToString()+"','"+FormWelcome.pobusid+"','"+cboxKendaraan.SelectedValue.ToString()+"','"+tboxDestination.Text+"','"+tboxPrice.Text+"','"+fromto+"','"+time+"','0')";
+                    sqlQuery = "insert into rute values ('"+tboxIDRute.Text+"','"+cboxBandara.SelectedValue.ToString()+"','"+cboxKendaraan.SelectedValue.ToString()+"','"+tboxDestination.Text+"','"+tboxPrice.Text+"','"+fromto+"','"+time+"','0')";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlConnect.Open();
                     sqlCommand.ExecuteNonQuery();
