@@ -162,6 +162,7 @@ namespace Azhuu_AppPerusahaan
             {
                 fromto = "F";
                 generateID();
+                labKeDari.Text = "Ke";
             }
             catch (Exception ex)
             {
@@ -175,6 +176,7 @@ namespace Azhuu_AppPerusahaan
             {
                 fromto = "T";
                 generateID();
+                labKeDari.Text = "Dari";
             }
             catch (Exception ex)
             {

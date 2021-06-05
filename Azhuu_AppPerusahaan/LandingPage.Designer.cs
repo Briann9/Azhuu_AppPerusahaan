@@ -79,6 +79,7 @@
             this.butUpcoming.TabIndex = 2;
             this.butUpcoming.Text = "Upcoming Trip";
             this.butUpcoming.UseVisualStyleBackColor = false;
+            this.butUpcoming.Click += new System.EventHandler(this.butUpcoming_Click);
             // 
             // label5
             // 
@@ -129,7 +130,7 @@
             // 
             this.tBoxAlamat.ForeColor = System.Drawing.Color.Black;
             this.tBoxAlamat.Location = new System.Drawing.Point(367, 367);
-            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxAlamat.Name = "tBoxAlamat";
             this.tBoxAlamat.Size = new System.Drawing.Size(296, 20);
             this.tBoxAlamat.TabIndex = 50;
@@ -139,7 +140,7 @@
             // 
             this.tBoxNomorTlpn.ForeColor = System.Drawing.Color.Black;
             this.tBoxNomorTlpn.Location = new System.Drawing.Point(367, 315);
-            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNomorTlpn.Name = "tBoxNomorTlpn";
             this.tBoxNomorTlpn.Size = new System.Drawing.Size(296, 20);
             this.tBoxNomorTlpn.TabIndex = 49;
@@ -149,7 +150,7 @@
             // 
             this.tBoxEmail.ForeColor = System.Drawing.Color.Black;
             this.tBoxEmail.Location = new System.Drawing.Point(367, 266);
-            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(296, 20);
             this.tBoxEmail.TabIndex = 48;
@@ -159,7 +160,7 @@
             // 
             this.tBoxNama.ForeColor = System.Drawing.Color.Black;
             this.tBoxNama.Location = new System.Drawing.Point(367, 219);
-            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNama.Name = "tBoxNama";
             this.tBoxNama.Size = new System.Drawing.Size(296, 20);
             this.tBoxNama.TabIndex = 47;
@@ -171,7 +172,7 @@
             this.tBoxID.Enabled = false;
             this.tBoxID.ForeColor = System.Drawing.Color.Black;
             this.tBoxID.Location = new System.Drawing.Point(366, 172);
-            this.tBoxID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxID.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxID.Name = "tBoxID";
             this.tBoxID.Size = new System.Drawing.Size(127, 20);
             this.tBoxID.TabIndex = 46;
@@ -213,7 +214,7 @@
             // 
             this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._3423432;
             this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1270, 687);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
