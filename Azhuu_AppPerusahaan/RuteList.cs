@@ -27,8 +27,6 @@ namespace Azhuu_AppPerusahaan
         string fromto = "F";
         string time = "00:00";
 
-        string jam;
-        string menit;
         private void RuteList_Load(object sender, EventArgs e)
         {
             try
@@ -86,7 +84,7 @@ namespace Azhuu_AppPerusahaan
 
 
                     DataTable dtjumlahrute = new DataTable();
-                    sqlQuery = "select rute_id from rute where airport_id = '"+cboxBandara.SelectedValue.ToString()+"' and rute_fromto = '"+fromto+"' and rute_halte = '"+destina+"'";
+                    sqlQuery = "select * from rute where airport_id = '"+cboxBandara.SelectedValue.ToString()+"' and rute_halte like '"+tboxDestination.Text+"%' and RUTE_FROMTO = '"+fromto+"'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtjumlahrute);
@@ -222,7 +220,7 @@ namespace Azhuu_AppPerusahaan
 
                 int datacount = cekrute.Rows.Count;
 
-                //time belum di set
+                time = cboxJam.SelectedItem.ToString() + ":" + cboxMenit.SelectedItem.ToString();
                 
 
                 if(tboxIDRute.Text == "" || time == "00:00" || cboxKendaraan.SelectedIndex == -1 || tboxPrice.Text == "")
@@ -266,20 +264,20 @@ namespace Azhuu_AppPerusahaan
         private void cboxJam_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //salah broooo
-            jam = cboxJam.SelectedItem.ToString();
-            menit = cboxMenit.SelectedItem.ToString();
+            ////salah broooo
+            //jam = cboxJam.SelectedItem.ToString();
+            //menit = cboxMenit.SelectedItem.ToString();
 
-            time = jam + ":" + menit;
+            //time = jam + ":" + menit;
         }
 
         private void cboxMenit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // ini juga salah broooo
-            jam = cboxJam.SelectedItem.ToString();
-            menit = cboxMenit.SelectedItem.ToString();
+            //// ini juga salah broooo
+            //jam = cboxJam.SelectedItem.ToString();
+            //menit = cboxMenit.SelectedItem.ToString();
 
-            time = jam + ":" + menit;
+            //time = jam + ":" + menit;
         }
     }
 }
