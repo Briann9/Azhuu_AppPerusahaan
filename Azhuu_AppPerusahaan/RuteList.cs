@@ -69,9 +69,6 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                
-
-
                 if (cboxBandara.SelectedIndex == -1 || tboxDestination.TextLength < 3)
                 {
                     tboxIDRute.Text = "";
