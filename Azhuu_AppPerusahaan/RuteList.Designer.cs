@@ -52,32 +52,38 @@
             this.cboxMenit = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvRute
             // 
             this.dgvRute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRute.Location = new System.Drawing.Point(53, 102);
+            this.dgvRute.Location = new System.Drawing.Point(70, 130);
+            this.dgvRute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvRute.Name = "dgvRute";
-            this.dgvRute.Size = new System.Drawing.Size(860, 547);
+            this.dgvRute.RowHeadersWidth = 51;
+            this.dgvRute.Size = new System.Drawing.Size(1060, 664);
             this.dgvRute.TabIndex = 0;
             this.dgvRute.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRute_CellClick);
             // 
             // tboxIDRute
             // 
             this.tboxIDRute.Enabled = false;
-            this.tboxIDRute.Location = new System.Drawing.Point(964, 106);
+            this.tboxIDRute.Location = new System.Drawing.Point(1214, 129);
+            this.tboxIDRute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxIDRute.Name = "tboxIDRute";
-            this.tboxIDRute.Size = new System.Drawing.Size(145, 20);
+            this.tboxIDRute.Size = new System.Drawing.Size(192, 22);
             this.tboxIDRute.TabIndex = 1;
             // 
             // rbutDari
             // 
             this.rbutDari.AutoSize = true;
-            this.rbutDari.Location = new System.Drawing.Point(964, 151);
+            this.rbutDari.Location = new System.Drawing.Point(1214, 185);
+            this.rbutDari.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbutDari.Name = "rbutDari";
-            this.rbutDari.Size = new System.Drawing.Size(44, 17);
+            this.rbutDari.Size = new System.Drawing.Size(55, 21);
             this.rbutDari.TabIndex = 2;
             this.rbutDari.TabStop = true;
             this.rbutDari.Text = "Dari";
@@ -87,9 +93,10 @@
             // rbutKe
             // 
             this.rbutKe.AutoSize = true;
-            this.rbutKe.Location = new System.Drawing.Point(1071, 151);
+            this.rbutKe.Location = new System.Drawing.Point(1357, 185);
+            this.rbutKe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbutKe.Name = "rbutKe";
-            this.rbutKe.Size = new System.Drawing.Size(38, 17);
+            this.rbutKe.Size = new System.Drawing.Size(46, 21);
             this.rbutKe.TabIndex = 3;
             this.rbutKe.TabStop = true;
             this.rbutKe.Text = "Ke";
@@ -98,96 +105,107 @@
             // 
             // tboxDestination
             // 
-            this.tboxDestination.Location = new System.Drawing.Point(964, 261);
+            this.tboxDestination.Location = new System.Drawing.Point(1214, 320);
+            this.tboxDestination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxDestination.Name = "tboxDestination";
-            this.tboxDestination.Size = new System.Drawing.Size(145, 20);
+            this.tboxDestination.Size = new System.Drawing.Size(192, 22);
             this.tboxDestination.TabIndex = 4;
             this.tboxDestination.TextChanged += new System.EventHandler(this.tboxDestination_TextChanged);
             // 
             // cboxBandara
             // 
             this.cboxBandara.FormattingEnabled = true;
-            this.cboxBandara.Location = new System.Drawing.Point(964, 200);
+            this.cboxBandara.Location = new System.Drawing.Point(1214, 245);
+            this.cboxBandara.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxBandara.Name = "cboxBandara";
-            this.cboxBandara.Size = new System.Drawing.Size(279, 21);
+            this.cboxBandara.Size = new System.Drawing.Size(371, 24);
             this.cboxBandara.TabIndex = 5;
             this.cboxBandara.SelectedIndexChanged += new System.EventHandler(this.cboxBandara_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1181, 151);
+            this.label1.Location = new System.Drawing.Point(1504, 185);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Bandara";
             // 
             // labKeDari
             // 
             this.labKeDari.AutoSize = true;
-            this.labKeDari.Location = new System.Drawing.Point(961, 245);
+            this.labKeDari.Location = new System.Drawing.Point(1210, 301);
+            this.labKeDari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labKeDari.Name = "labKeDari";
-            this.labKeDari.Size = new System.Drawing.Size(20, 13);
+            this.labKeDari.Size = new System.Drawing.Size(25, 17);
             this.labKeDari.TabIndex = 7;
             this.labKeDari.Text = "Ke";
             // 
             // cboxKendaraan
             // 
             this.cboxKendaraan.FormattingEnabled = true;
-            this.cboxKendaraan.Location = new System.Drawing.Point(964, 410);
+            this.cboxKendaraan.Location = new System.Drawing.Point(1214, 504);
+            this.cboxKendaraan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxKendaraan.Name = "cboxKendaraan";
-            this.cboxKendaraan.Size = new System.Drawing.Size(145, 21);
+            this.cboxKendaraan.Size = new System.Drawing.Size(192, 24);
             this.cboxKendaraan.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(964, 87);
+            this.label2.Location = new System.Drawing.Point(1214, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "ID Rute";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(964, 184);
+            this.label3.Location = new System.Drawing.Point(1214, 225);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Bandara";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(961, 302);
+            this.label4.Location = new System.Drawing.Point(1210, 371);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(39, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Time";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(964, 394);
+            this.label5.Location = new System.Drawing.Point(1214, 484);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(78, 17);
             this.label5.TabIndex = 13;
             this.label5.Text = "Kendaraan";
             // 
             // tboxPrice
             // 
-            this.tboxPrice.Location = new System.Drawing.Point(964, 539);
+            this.tboxPrice.Location = new System.Drawing.Point(1214, 662);
+            this.tboxPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxPrice.Name = "tboxPrice";
-            this.tboxPrice.Size = new System.Drawing.Size(145, 20);
+            this.tboxPrice.Size = new System.Drawing.Size(192, 22);
             this.tboxPrice.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(964, 523);
+            this.label6.Location = new System.Drawing.Point(1214, 643);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Harga";
             // 
@@ -195,17 +213,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(49, 64);
+            this.label7.Location = new System.Drawing.Point(100, 98);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.Size = new System.Drawing.Size(87, 25);
             this.label7.TabIndex = 16;
             this.label7.Text = "Rute List";
             // 
             // butBack
             // 
-            this.butBack.Location = new System.Drawing.Point(53, 12);
+            this.butBack.Location = new System.Drawing.Point(13, 13);
+            this.butBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butBack.Name = "butBack";
-            this.butBack.Size = new System.Drawing.Size(46, 23);
+            this.butBack.Size = new System.Drawing.Size(61, 28);
             this.butBack.TabIndex = 17;
             this.butBack.Text = "<";
             this.butBack.UseVisualStyleBackColor = true;
@@ -213,18 +233,20 @@
             // labError
             // 
             this.labError.AutoSize = true;
-            this.labError.Location = new System.Drawing.Point(963, 579);
+            this.labError.Location = new System.Drawing.Point(1213, 712);
+            this.labError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(10, 13);
+            this.labError.Size = new System.Drawing.Size(13, 17);
             this.labError.TabIndex = 20;
             this.labError.Text = "-";
             // 
             // butDelete
             // 
             this.butDelete.Enabled = false;
-            this.butDelete.Location = new System.Drawing.Point(1098, 611);
+            this.butDelete.Location = new System.Drawing.Point(1393, 751);
+            this.butDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butDelete.Name = "butDelete";
-            this.butDelete.Size = new System.Drawing.Size(94, 23);
+            this.butDelete.Size = new System.Drawing.Size(125, 28);
             this.butDelete.TabIndex = 19;
             this.butDelete.Text = "Delete Rute";
             this.butDelete.UseVisualStyleBackColor = true;
@@ -232,9 +254,10 @@
             // 
             // butInsert
             // 
-            this.butInsert.Location = new System.Drawing.Point(966, 611);
+            this.butInsert.Location = new System.Drawing.Point(1217, 751);
+            this.butInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butInsert.Name = "butInsert";
-            this.butInsert.Size = new System.Drawing.Size(91, 23);
+            this.butInsert.Size = new System.Drawing.Size(121, 28);
             this.butInsert.TabIndex = 18;
             this.butInsert.Text = "Insert Rute";
             this.butInsert.UseVisualStyleBackColor = true;
@@ -268,9 +291,10 @@
             "22",
             "23",
             "24"});
-            this.cboxJam.Location = new System.Drawing.Point(964, 344);
+            this.cboxJam.Location = new System.Drawing.Point(1214, 422);
+            this.cboxJam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxJam.Name = "cboxJam";
-            this.cboxJam.Size = new System.Drawing.Size(93, 21);
+            this.cboxJam.Size = new System.Drawing.Size(123, 24);
             this.cboxJam.TabIndex = 21;
             this.cboxJam.SelectedIndexChanged += new System.EventHandler(this.cboxJam_SelectedIndexChanged);
             // 
@@ -338,35 +362,48 @@
             "57",
             "58",
             "59"});
-            this.cboxMenit.Location = new System.Drawing.Point(1112, 344);
+            this.cboxMenit.Location = new System.Drawing.Point(1412, 422);
+            this.cboxMenit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxMenit.Name = "cboxMenit";
-            this.cboxMenit.Size = new System.Drawing.Size(93, 21);
+            this.cboxMenit.Size = new System.Drawing.Size(123, 24);
             this.cboxMenit.TabIndex = 22;
             this.cboxMenit.SelectedIndexChanged += new System.EventHandler(this.cboxMenit_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(964, 328);
+            this.label8.Location = new System.Drawing.Point(1214, 403);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.Size = new System.Drawing.Size(34, 17);
             this.label8.TabIndex = 23;
             this.label8.Text = "Jam";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1109, 328);
+            this.label9.Location = new System.Drawing.Point(1408, 403);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.Size = new System.Drawing.Size(42, 17);
             this.label9.TabIndex = 24;
             this.label9.Text = "Menit";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._12143;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1689, 844);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // RuteList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cboxMenit);
@@ -391,10 +428,13 @@
             this.Controls.Add(this.rbutDari);
             this.Controls.Add(this.tboxIDRute);
             this.Controls.Add(this.dgvRute);
+            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RuteList";
             this.Text = "RuteList";
             this.Load += new System.EventHandler(this.RuteList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +466,6 @@
         private System.Windows.Forms.ComboBox cboxMenit;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -63,6 +63,16 @@ namespace Azhuu_AppPerusahaan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1111111111111111111111 {
+            get {
+                object obj = ResourceManager.GetObject("1111111111111111111111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _11111WEEWWE {
             get {
                 object obj = ResourceManager.GetObject("11111WEEWWE", resourceCulture);
@@ -76,6 +86,16 @@ namespace Azhuu_AppPerusahaan.Properties {
         internal static System.Drawing.Bitmap _11551 {
             get {
                 object obj = ResourceManager.GetObject("11551", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _12143 {
+            get {
+                object obj = ResourceManager.GetObject("12143", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
