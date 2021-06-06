@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Azhuu_AppPerusahaan
 {
@@ -16,6 +17,12 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
+        MySqlConnection sqlConnect;
+        MySqlCommand sqlCommand;
+        MySqlDataAdapter sqlAdapter;
+        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        string sqlQuery;
+        public static string emailforgot = "";
 
         private void FormForgotPassEmail_Load(object sender, EventArgs e)
         {
@@ -33,8 +40,25 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                FormForgotPassTlpn formForgotPassTlpn = new FormForgotPassTlpn();
-                formForgotPassTlpn.Show();
+                sqlConnect = new MySqlConnection(connectString);
+                DataTable masuk = new DataTable();
+                sqlQuery = "select user_email from user_azhuu where user_email = '" + tBoxEmail.Text + "'";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(masuk);
+
+                if (masuk.Rows.Count == 0)
+                {
+                    labError.Text = "Email Tidak Terdaftar!";
+                }
+                else
+                {
+                    this.Hide();
+                    emailforgot = tBoxEmail.Text;
+
+                    var pwnotelp = new FormForgotPassTlpn();
+                    pwnotelp.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -46,12 +70,18 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-
+                var pwnotelp1 = new FormSignIn();
+                pwnotelp1.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

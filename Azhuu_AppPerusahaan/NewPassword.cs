@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Azhuu_AppPerusahaan
 {
@@ -16,12 +17,39 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
+        MySqlConnection sqlConnect;
+        MySqlCommand sqlCommand;
+        MySqlDataAdapter sqlAdapter;
+        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        string sqlQuery;
 
         private void FormNewPassword_Load(object sender, EventArgs e)
         {
             try
             {
+                if (tBoxPassword.Text != tBoxConfirmPassword.Text)
+                {
+                    labError.Text = " paswword tidak sama";
+                }
+                else
+                {
+                    // masih belom selesai, close semua form di sebelum ini
 
+                    // ForgotPasswordEmail vt = new ForgotPasswordEmail();
+                    sqlConnect = new MySqlConnection(connectString);
+                    DataTable masuk1 = new DataTable();
+                    sqlQuery = "update user_azhuu set USER_PASSWORD = '" + tBoxPassword.Text + "' where USER_EMAIL = '" + FormForgotPassEmail.emailforgot + "' ";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(masuk1);
+
+                    // labError.Text = " paswword sudah diganti";
+
+                    // password di password char '*';
+
+                    // lempar ke login
+
+                }
             }
             catch (Exception ex)
             {
@@ -33,12 +61,38 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-
+                var pwnotelp = new FormForgotPassTlpn();
+                pwnotelp.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tBoxPassword.PasswordChar = '*';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tBoxConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                tBoxConfirmPassword.PasswordChar = '*';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

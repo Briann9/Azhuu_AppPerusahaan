@@ -37,6 +37,7 @@ namespace Azhuu_AppPerusahaan
             this.labelConfirmPassword = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,15 +66,16 @@ namespace Azhuu_AppPerusahaan
             // tBoxPassword
             // 
             this.tBoxPassword.Location = new System.Drawing.Point(559, 536);
-            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxPassword.Name = "tBoxPassword";
             this.tBoxPassword.Size = new System.Drawing.Size(495, 22);
             this.tBoxPassword.TabIndex = 44;
+            this.tBoxPassword.TextChanged += new System.EventHandler(this.tBoxPassword_TextChanged);
             // 
             // buttonContinue
             // 
             this.buttonContinue.Location = new System.Drawing.Point(704, 670);
-            this.buttonContinue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonContinue.Margin = new System.Windows.Forms.Padding(4);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(217, 28);
             this.buttonContinue.TabIndex = 45;
@@ -83,10 +85,11 @@ namespace Azhuu_AppPerusahaan
             // tBoxConfirmPassword
             // 
             this.tBoxConfirmPassword.Location = new System.Drawing.Point(559, 595);
-            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxConfirmPassword.Name = "tBoxConfirmPassword";
             this.tBoxConfirmPassword.Size = new System.Drawing.Size(495, 22);
             this.tBoxConfirmPassword.TabIndex = 48;
+            this.tBoxConfirmPassword.TextChanged += new System.EventHandler(this.tBoxConfirmPassword_TextChanged);
             // 
             // labelConfirmPassword
             // 
@@ -102,7 +105,7 @@ namespace Azhuu_AppPerusahaan
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(13, 14);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(39, 28);
             this.buttonBack.TabIndex = 49;
@@ -120,11 +123,24 @@ namespace Azhuu_AppPerusahaan
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
             // 
+            // labError
+            // 
+            this.labError.AutoSize = true;
+            this.labError.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labError.ForeColor = System.Drawing.Color.Red;
+            this.labError.Location = new System.Drawing.Point(589, 630);
+            this.labError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(20, 29);
+            this.labError.TabIndex = 51;
+            this.labError.Text = "-";
+            // 
             // FormNewPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.Controls.Add(this.labError);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.tBoxConfirmPassword);
             this.Controls.Add(this.labelConfirmPassword);
@@ -153,5 +169,6 @@ namespace Azhuu_AppPerusahaan
         private System.Windows.Forms.Label labelConfirmPassword;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labError;
     }
 }

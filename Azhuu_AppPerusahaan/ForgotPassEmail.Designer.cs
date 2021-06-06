@@ -35,13 +35,14 @@ namespace Azhuu_AppPerusahaan
             this.labelForgotPassword = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // butttonContinue
             // 
             this.butttonContinue.Location = new System.Drawing.Point(721, 679);
-            this.butttonContinue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butttonContinue.Margin = new System.Windows.Forms.Padding(4);
             this.butttonContinue.Name = "butttonContinue";
             this.butttonContinue.Size = new System.Drawing.Size(243, 28);
             this.butttonContinue.TabIndex = 29;
@@ -52,10 +53,11 @@ namespace Azhuu_AppPerusahaan
             // tBoxEmail
             // 
             this.tBoxEmail.Location = new System.Drawing.Point(577, 598);
-            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(521, 22);
             this.tBoxEmail.TabIndex = 28;
+            this.tBoxEmail.TextChanged += new System.EventHandler(this.tBoxEmail_TextChanged);
             // 
             // labelMasukkanEmail
             // 
@@ -82,7 +84,7 @@ namespace Azhuu_AppPerusahaan
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(13, 14);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(39, 28);
             this.buttonBack.TabIndex = 40;
@@ -100,11 +102,21 @@ namespace Azhuu_AppPerusahaan
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
+            // labError
+            // 
+            this.labError.AutoSize = true;
+            this.labError.Location = new System.Drawing.Point(578, 638);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(13, 17);
+            this.labError.TabIndex = 42;
+            this.labError.Text = "-";
+            // 
             // FormForgotPassEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.Controls.Add(this.labError);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.butttonContinue);
             this.Controls.Add(this.tBoxEmail);
@@ -129,5 +141,6 @@ namespace Azhuu_AppPerusahaan
         private System.Windows.Forms.Label labelForgotPassword;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labError;
     }
 }

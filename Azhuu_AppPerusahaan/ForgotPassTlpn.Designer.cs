@@ -42,7 +42,7 @@ namespace Azhuu_AppPerusahaan
             // buttonContinue
             // 
             this.buttonContinue.Location = new System.Drawing.Point(731, 663);
-            this.buttonContinue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonContinue.Margin = new System.Windows.Forms.Padding(4);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(243, 28);
             this.buttonContinue.TabIndex = 35;
@@ -53,7 +53,7 @@ namespace Azhuu_AppPerusahaan
             // tBoxNoTelp
             // 
             this.tBoxNoTelp.Location = new System.Drawing.Point(587, 582);
-            this.tBoxNoTelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBoxNoTelp.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxNoTelp.Name = "tBoxNoTelp";
             this.tBoxNoTelp.Size = new System.Drawing.Size(521, 22);
             this.tBoxNoTelp.TabIndex = 34;
@@ -85,7 +85,7 @@ namespace Azhuu_AppPerusahaan
             this.labelError.AutoSize = true;
             this.labelError.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(709, 542);
+            this.labelError.Location = new System.Drawing.Point(652, 623);
             this.labelError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(16, 24);
@@ -95,7 +95,7 @@ namespace Azhuu_AppPerusahaan
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(13, 14);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(39, 28);
             this.buttonBack.TabIndex = 40;
