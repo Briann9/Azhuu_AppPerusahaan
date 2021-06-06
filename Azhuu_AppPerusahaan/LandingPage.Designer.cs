@@ -209,6 +209,7 @@
             this.butSave.TabIndex = 58;
             this.butSave.Text = "Save Change";
             this.butSave.UseVisualStyleBackColor = false;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // pictureBox1
             // 
