@@ -246,6 +246,14 @@ namespace Azhuu_AppPerusahaan
                     sqlCommand.ExecuteNonQuery();
                     sqlConnect.Close();
 
+                    sqlQuery = "insert into airport_pobus values ('"+cboxBandara.SelectedValue.ToString()+"','"+FormWelcome.pobusid+"')";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+
+
+
                     sqlConnect = new MySqlConnection(connectString);
 
                     refreshDGV();
@@ -263,6 +271,7 @@ namespace Azhuu_AppPerusahaan
             }
             catch (Exception ex)
             {
+                sqlConnect.Close();
                 MessageBox.Show(ex.Message);
             }
         }

@@ -60,6 +60,18 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 // keluarkan di dgv baru siapa2 saja penumpangnya
+                string ruteid = dgvDaftarPenumpang.Rows[e.RowIndex].Cells["Rute ID"].ToString();
+
+                sqlConnect = new MySqlConnection(connectString);
+
+                DataTable dtListPenumpang = new DataTable();
+                sqlQuery = "";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtListPenumpang);
+
+                dgvDaftarPenumpang.DataSource = dtListPenumpang;
+
             }
             catch (Exception ex)
             {
