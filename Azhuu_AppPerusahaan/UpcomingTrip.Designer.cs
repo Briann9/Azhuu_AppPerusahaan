@@ -44,7 +44,7 @@
             // 
             this.dgvUpcomingTrip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpcomingTrip.Location = new System.Drawing.Point(73, 176);
-            this.dgvUpcomingTrip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUpcomingTrip.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUpcomingTrip.Name = "dgvUpcomingTrip";
             this.dgvUpcomingTrip.RowHeadersWidth = 51;
             this.dgvUpcomingTrip.Size = new System.Drawing.Size(772, 619);
@@ -54,7 +54,7 @@
             // butBack
             // 
             this.butBack.Location = new System.Drawing.Point(73, 98);
-            this.butBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butBack.Margin = new System.Windows.Forms.Padding(4);
             this.butBack.Name = "butBack";
             this.butBack.Size = new System.Drawing.Size(100, 28);
             this.butBack.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.dgvDaftarPenumpang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDaftarPenumpang.Location = new System.Drawing.Point(1056, 176);
-            this.dgvDaftarPenumpang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDaftarPenumpang.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDaftarPenumpang.Name = "dgvDaftarPenumpang";
             this.dgvDaftarPenumpang.RowHeadersWidth = 51;
             this.dgvDaftarPenumpang.Size = new System.Drawing.Size(531, 597);
@@ -74,8 +74,8 @@
             // 
             // butDone
             // 
-            this.butDone.Location = new System.Drawing.Point(1414, 731);
-            this.butDone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butDone.Location = new System.Drawing.Point(1401, 781);
+            this.butDone.Margin = new System.Windows.Forms.Padding(4);
             this.butDone.Name = "butDone";
             this.butDone.Size = new System.Drawing.Size(160, 28);
             this.butDone.TabIndex = 3;
@@ -125,7 +125,7 @@
             this.Controls.Add(this.butBack);
             this.Controls.Add(this.dgvUpcomingTrip);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpcomingTrip";
             this.Text = "UpcomingTrip";
             this.Load += new System.EventHandler(this.UpcomingTrip_Load);
