@@ -60,6 +60,7 @@
             this.butBack.TabIndex = 1;
             this.butBack.Text = "<";
             this.butBack.UseVisualStyleBackColor = true;
+            this.butBack.Click += new System.EventHandler(this.butBack_Click);
             // 
             // dgvDaftarPenumpang
             // 

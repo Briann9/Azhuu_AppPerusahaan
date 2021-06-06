@@ -61,7 +61,7 @@
             // 
             this.dgvRute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRute.Location = new System.Drawing.Point(70, 130);
-            this.dgvRute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvRute.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRute.Name = "dgvRute";
             this.dgvRute.RowHeadersWidth = 51;
             this.dgvRute.Size = new System.Drawing.Size(1060, 664);
@@ -72,7 +72,7 @@
             // 
             this.tboxIDRute.Enabled = false;
             this.tboxIDRute.Location = new System.Drawing.Point(1214, 129);
-            this.tboxIDRute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tboxIDRute.Margin = new System.Windows.Forms.Padding(4);
             this.tboxIDRute.Name = "tboxIDRute";
             this.tboxIDRute.Size = new System.Drawing.Size(192, 22);
             this.tboxIDRute.TabIndex = 1;
@@ -81,7 +81,7 @@
             // 
             this.rbutDari.AutoSize = true;
             this.rbutDari.Location = new System.Drawing.Point(1214, 185);
-            this.rbutDari.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbutDari.Margin = new System.Windows.Forms.Padding(4);
             this.rbutDari.Name = "rbutDari";
             this.rbutDari.Size = new System.Drawing.Size(55, 21);
             this.rbutDari.TabIndex = 2;
@@ -94,7 +94,7 @@
             // 
             this.rbutKe.AutoSize = true;
             this.rbutKe.Location = new System.Drawing.Point(1357, 185);
-            this.rbutKe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbutKe.Margin = new System.Windows.Forms.Padding(4);
             this.rbutKe.Name = "rbutKe";
             this.rbutKe.Size = new System.Drawing.Size(46, 21);
             this.rbutKe.TabIndex = 3;
@@ -106,7 +106,7 @@
             // tboxDestination
             // 
             this.tboxDestination.Location = new System.Drawing.Point(1214, 320);
-            this.tboxDestination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tboxDestination.Margin = new System.Windows.Forms.Padding(4);
             this.tboxDestination.Name = "tboxDestination";
             this.tboxDestination.Size = new System.Drawing.Size(192, 22);
             this.tboxDestination.TabIndex = 4;
@@ -116,7 +116,7 @@
             // 
             this.cboxBandara.FormattingEnabled = true;
             this.cboxBandara.Location = new System.Drawing.Point(1214, 245);
-            this.cboxBandara.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxBandara.Margin = new System.Windows.Forms.Padding(4);
             this.cboxBandara.Name = "cboxBandara";
             this.cboxBandara.Size = new System.Drawing.Size(371, 24);
             this.cboxBandara.TabIndex = 5;
@@ -146,7 +146,7 @@
             // 
             this.cboxKendaraan.FormattingEnabled = true;
             this.cboxKendaraan.Location = new System.Drawing.Point(1214, 504);
-            this.cboxKendaraan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxKendaraan.Margin = new System.Windows.Forms.Padding(4);
             this.cboxKendaraan.Name = "cboxKendaraan";
             this.cboxKendaraan.Size = new System.Drawing.Size(192, 24);
             this.cboxKendaraan.TabIndex = 9;
@@ -194,7 +194,7 @@
             // tboxPrice
             // 
             this.tboxPrice.Location = new System.Drawing.Point(1214, 662);
-            this.tboxPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tboxPrice.Margin = new System.Windows.Forms.Padding(4);
             this.tboxPrice.Name = "tboxPrice";
             this.tboxPrice.Size = new System.Drawing.Size(192, 22);
             this.tboxPrice.TabIndex = 14;
@@ -223,12 +223,13 @@
             // butBack
             // 
             this.butBack.Location = new System.Drawing.Point(13, 13);
-            this.butBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butBack.Margin = new System.Windows.Forms.Padding(4);
             this.butBack.Name = "butBack";
             this.butBack.Size = new System.Drawing.Size(61, 28);
             this.butBack.TabIndex = 17;
             this.butBack.Text = "<";
             this.butBack.UseVisualStyleBackColor = true;
+            this.butBack.Click += new System.EventHandler(this.butBack_Click);
             // 
             // labError
             // 
@@ -244,7 +245,7 @@
             // 
             this.butDelete.Enabled = false;
             this.butDelete.Location = new System.Drawing.Point(1393, 751);
-            this.butDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butDelete.Margin = new System.Windows.Forms.Padding(4);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(125, 28);
             this.butDelete.TabIndex = 19;
@@ -255,7 +256,7 @@
             // butInsert
             // 
             this.butInsert.Location = new System.Drawing.Point(1217, 751);
-            this.butInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butInsert.Margin = new System.Windows.Forms.Padding(4);
             this.butInsert.Name = "butInsert";
             this.butInsert.Size = new System.Drawing.Size(121, 28);
             this.butInsert.TabIndex = 18;
@@ -292,7 +293,7 @@
             "23",
             "24"});
             this.cboxJam.Location = new System.Drawing.Point(1214, 422);
-            this.cboxJam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxJam.Margin = new System.Windows.Forms.Padding(4);
             this.cboxJam.Name = "cboxJam";
             this.cboxJam.Size = new System.Drawing.Size(123, 24);
             this.cboxJam.TabIndex = 21;
@@ -363,7 +364,7 @@
             "58",
             "59"});
             this.cboxMenit.Location = new System.Drawing.Point(1412, 422);
-            this.cboxMenit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxMenit.Margin = new System.Windows.Forms.Padding(4);
             this.cboxMenit.Name = "cboxMenit";
             this.cboxMenit.Size = new System.Drawing.Size(123, 24);
             this.cboxMenit.TabIndex = 22;
@@ -429,7 +430,7 @@
             this.Controls.Add(this.tboxIDRute);
             this.Controls.Add(this.dgvRute);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RuteList";
             this.Text = "RuteList";
             this.Load += new System.EventHandler(this.RuteList_Load);

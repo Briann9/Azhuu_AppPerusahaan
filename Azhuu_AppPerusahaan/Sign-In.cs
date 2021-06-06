@@ -128,7 +128,8 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-
+                var pwnotelp1 = new FormWelcome();
+                pwnotelp1.ShowDialog();
             }
             catch (Exception ex)
             {

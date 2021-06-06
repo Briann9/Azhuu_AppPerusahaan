@@ -52,10 +52,11 @@
             // dgvVList
             // 
             this.dgvVList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVList.Location = new System.Drawing.Point(31, 98);
+            this.dgvVList.Location = new System.Drawing.Point(41, 121);
+            this.dgvVList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVList.Name = "dgvVList";
             this.dgvVList.RowHeadersWidth = 51;
-            this.dgvVList.Size = new System.Drawing.Size(610, 553);
+            this.dgvVList.Size = new System.Drawing.Size(813, 681);
             this.dgvVList.TabIndex = 0;
             this.dgvVList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVList_CellClick);
             // 
@@ -63,94 +64,105 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 67);
+            this.label1.Location = new System.Drawing.Point(47, 82);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
+            this.label1.Size = new System.Drawing.Size(112, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Vehicle List";
             // 
             // tboxV_ID
             // 
             this.tboxV_ID.Enabled = false;
-            this.tboxV_ID.Location = new System.Drawing.Point(836, 194);
+            this.tboxV_ID.Location = new System.Drawing.Point(1115, 239);
+            this.tboxV_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxV_ID.Name = "tboxV_ID";
-            this.tboxV_ID.Size = new System.Drawing.Size(129, 20);
+            this.tboxV_ID.Size = new System.Drawing.Size(171, 22);
             this.tboxV_ID.TabIndex = 2;
             // 
             // tboxBrand
             // 
-            this.tboxBrand.Location = new System.Drawing.Point(836, 240);
+            this.tboxBrand.Location = new System.Drawing.Point(1115, 295);
+            this.tboxBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxBrand.Name = "tboxBrand";
-            this.tboxBrand.Size = new System.Drawing.Size(255, 20);
+            this.tboxBrand.Size = new System.Drawing.Size(339, 22);
             this.tboxBrand.TabIndex = 3;
             this.tboxBrand.TextChanged += new System.EventHandler(this.tboxBrand_TextChanged);
             // 
             // tboxCapacity
             // 
-            this.tboxCapacity.Location = new System.Drawing.Point(836, 340);
+            this.tboxCapacity.Location = new System.Drawing.Point(1115, 418);
+            this.tboxCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxCapacity.Name = "tboxCapacity";
-            this.tboxCapacity.Size = new System.Drawing.Size(255, 20);
+            this.tboxCapacity.Size = new System.Drawing.Size(339, 22);
             this.tboxCapacity.TabIndex = 5;
             this.tboxCapacity.TextChanged += new System.EventHandler(this.tboxCapacity_TextChanged);
             this.tboxCapacity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxCapacity_KeyPress);
             // 
             // tboxPlate
             // 
-            this.tboxPlate.Location = new System.Drawing.Point(836, 396);
+            this.tboxPlate.Location = new System.Drawing.Point(1115, 487);
+            this.tboxPlate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tboxPlate.Name = "tboxPlate";
-            this.tboxPlate.Size = new System.Drawing.Size(255, 20);
+            this.tboxPlate.Size = new System.Drawing.Size(339, 22);
             this.tboxPlate.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(833, 178);
+            this.label2.Location = new System.Drawing.Point(1111, 219);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Vehicle ID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(833, 224);
+            this.label3.Location = new System.Drawing.Point(1111, 276);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Brand";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(833, 273);
+            this.label4.Location = new System.Drawing.Point(1111, 336);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Vehicle Type";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(833, 323);
+            this.label5.Location = new System.Drawing.Point(1111, 398);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Capacity";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(833, 379);
+            this.label6.Location = new System.Drawing.Point(1111, 466);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "License Plate";
             // 
             // butInsert
             // 
-            this.butInsert.Location = new System.Drawing.Point(836, 464);
+            this.butInsert.Location = new System.Drawing.Point(1115, 571);
+            this.butInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butInsert.Name = "butInsert";
-            this.butInsert.Size = new System.Drawing.Size(120, 28);
+            this.butInsert.Size = new System.Drawing.Size(160, 34);
             this.butInsert.TabIndex = 12;
             this.butInsert.Text = "Insert Vehicle";
             this.butInsert.UseVisualStyleBackColor = true;
@@ -158,9 +170,10 @@
             // 
             // butDelete
             // 
-            this.butDelete.Location = new System.Drawing.Point(968, 464);
+            this.butDelete.Location = new System.Drawing.Point(1291, 571);
+            this.butDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butDelete.Name = "butDelete";
-            this.butDelete.Size = new System.Drawing.Size(123, 28);
+            this.butDelete.Size = new System.Drawing.Size(164, 34);
             this.butDelete.TabIndex = 13;
             this.butDelete.Text = "Delete Vehicle";
             this.butDelete.UseVisualStyleBackColor = true;
@@ -168,46 +181,50 @@
             // 
             // butBack
             // 
-            this.butBack.Location = new System.Drawing.Point(34, 32);
+            this.butBack.Location = new System.Drawing.Point(45, 39);
+            this.butBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butBack.Name = "butBack";
-            this.butBack.Size = new System.Drawing.Size(46, 23);
+            this.butBack.Size = new System.Drawing.Size(61, 28);
             this.butBack.TabIndex = 14;
             this.butBack.Text = "<";
             this.butBack.UseVisualStyleBackColor = true;
+            this.butBack.Click += new System.EventHandler(this.butBack_Click);
             // 
             // cboxType
             // 
             this.cboxType.FormattingEnabled = true;
-            this.cboxType.Location = new System.Drawing.Point(836, 290);
+            this.cboxType.Location = new System.Drawing.Point(1115, 357);
+            this.cboxType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxType.Name = "cboxType";
-            this.cboxType.Size = new System.Drawing.Size(255, 21);
+            this.cboxType.Size = new System.Drawing.Size(339, 24);
             this.cboxType.TabIndex = 15;
             // 
             // labError
             // 
             this.labError.AutoSize = true;
-            this.labError.Location = new System.Drawing.Point(833, 432);
+            this.labError.Location = new System.Drawing.Point(1111, 532);
+            this.labError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(10, 13);
+            this.labError.Size = new System.Drawing.Size(13, 17);
             this.labError.TabIndex = 16;
             this.labError.Text = "-";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._11551;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(-5, -12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1270, 700);
+            this.pictureBox1.Size = new System.Drawing.Size(1693, 862);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
             // 
             // VehicleList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.labError);
             this.Controls.Add(this.cboxType);
             this.Controls.Add(this.butBack);
@@ -225,6 +242,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvVList);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VehicleList";
             this.Text = "VehicleList";
             this.Load += new System.EventHandler(this.VehicleList_Load);

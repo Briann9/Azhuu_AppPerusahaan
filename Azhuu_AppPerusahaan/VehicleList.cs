@@ -257,5 +257,11 @@ namespace Azhuu_AppPerusahaan
                 sqlConnect.Close();
             }
         }
+
+        private void butBack_Click(object sender, EventArgs e)
+        {
+            var pwnotelp1 = new LandingPage();
+            pwnotelp1.ShowDialog();
+        }
     }
 }
