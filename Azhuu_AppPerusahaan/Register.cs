@@ -81,8 +81,8 @@ namespace Azhuu_AppPerusahaan
                     FormWelcome.pobusid = tBoxID.Text;
                     //lempar ke landing page
                     this.Hide();
-                    var landing = new LandingPage();
-                    landing.ShowDialog();
+                    var login = new FormSignIn();
+                    login.ShowDialog();
                 }
             }
             catch (Exception ex)

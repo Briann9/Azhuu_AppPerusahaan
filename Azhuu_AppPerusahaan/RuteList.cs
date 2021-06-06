@@ -246,14 +246,20 @@ namespace Azhuu_AppPerusahaan
                     sqlCommand.ExecuteNonQuery();
                     sqlConnect.Close();
 
-                    sqlQuery = "insert into airport_pobus values ('"+cboxBandara.SelectedValue.ToString()+"','"+FormWelcome.pobusid+"')";
+                    DataTable ceksudahada = new DataTable();
+                    sqlQuery = "select * from airport_pobus where airport_id = '" + cboxBandara.SelectedValue.ToString() + "' and pobus_id = '" + FormWelcome.pobusid + "'";
                     sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    sqlAdapter.Fill(ceksudahada);
 
-
-
+                    if(ceksudahada.Rows.Count == 0)
+                    {
+                        sqlQuery = "insert into airport_pobus values ('" + cboxBandara.SelectedValue.ToString() + "','" + FormWelcome.pobusid + "')";
+                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                        sqlConnect.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnect.Close();
+                    }
                     sqlConnect = new MySqlConnection(connectString);
 
                     refreshDGV();
