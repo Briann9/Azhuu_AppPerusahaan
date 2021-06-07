@@ -221,8 +221,30 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-
+                    sqlConnect = new MySqlConnection(connectString);
+                    sqlQuery = "update po_bus set pobus_name = '"+tBoxNama.Text+"', pobus_address = '"+tBoxAlamat.Text+"', pobus_telp = '"+tBoxNomorTlpn.Text+"', pobus_email = '"+tBoxEmail.Text+"' where pobus_id = '"+tBoxID.Text+"';";
+                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnect.Close();
+                    MessageBox.Show("Data sudah diubah!");
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void butSignOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                this.Close();
+                var welcomee = new FormWelcome();
+                welcomee.ShowDialog();
             }
             catch (Exception ex)
             {

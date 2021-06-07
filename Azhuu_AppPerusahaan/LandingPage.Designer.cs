@@ -45,6 +45,7 @@
             this.butDelete = new System.Windows.Forms.Button();
             this.butSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.butSignOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,11 +223,23 @@
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             // 
+            // butSignOut
+            // 
+            this.butSignOut.BackColor = System.Drawing.Color.LightCoral;
+            this.butSignOut.Location = new System.Drawing.Point(621, 44);
+            this.butSignOut.Name = "butSignOut";
+            this.butSignOut.Size = new System.Drawing.Size(96, 31);
+            this.butSignOut.TabIndex = 60;
+            this.butSignOut.Text = "Sign-Out";
+            this.butSignOut.UseVisualStyleBackColor = false;
+            this.butSignOut.Click += new System.EventHandler(this.butSignOut_Click);
+            // 
             // LandingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.butSignOut);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.label6);
@@ -272,5 +285,6 @@
         private System.Windows.Forms.Button butDelete;
         private System.Windows.Forms.Button butSave;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button butSignOut;
     }
 }

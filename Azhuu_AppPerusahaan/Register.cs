@@ -95,6 +95,7 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
+                this.Hide();
                 FormSignIn formSignIn = new FormSignIn();
                 formSignIn.Show();
             }

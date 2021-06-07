@@ -115,6 +115,7 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
+                this.Hide();
                 FormRegister formRegister = new FormRegister();
                 formRegister.Show();
             }

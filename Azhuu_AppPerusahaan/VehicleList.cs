@@ -260,6 +260,7 @@ namespace Azhuu_AppPerusahaan
 
         private void butBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var pwnotelp1 = new LandingPage();
             pwnotelp1.ShowDialog();
         }

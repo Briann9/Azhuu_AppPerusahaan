@@ -23,6 +23,7 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
+                this.Hide();
                 FormSignIn formSignIn = new FormSignIn();
                 formSignIn.Show();
             }
@@ -36,6 +37,7 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
+                this.Hide();
                 FormRegister formRegister = new FormRegister();
                 formRegister.Show();
             }
