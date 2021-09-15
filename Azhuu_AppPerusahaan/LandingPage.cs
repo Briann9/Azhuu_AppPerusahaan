@@ -13,10 +13,15 @@ namespace Azhuu_AppPerusahaan
 {
     public partial class LandingPage : Form
     {
+        
         public LandingPage()
         {
             InitializeComponent();
         }
+
+        
+
+
 
         MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;

@@ -17,11 +17,16 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
+        FormWelcome fWelcome;
         MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
+
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
 
         private void FormSignIn_Load(object sender, EventArgs e)
         {
@@ -42,11 +47,11 @@ namespace Azhuu_AppPerusahaan
                 int cekemail = 0;
                 int cekpassword = 0;
 
-                sqlConnect = new MySqlConnection(connectString);
+                
 
                 DataTable dtLogin = new DataTable();
                 sqlQuery = "select pobus_email from po_bus where pobus_email = '" + tBoxEmail.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtLogin);
 
@@ -58,7 +63,7 @@ namespace Azhuu_AppPerusahaan
 
                 DataTable dtpassword = new DataTable();
                 sqlQuery = "select pobus_email, pobus_password from po_bus where pobus_password = '" + tBoxPassword.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtpassword);
 
@@ -80,9 +85,8 @@ namespace Azhuu_AppPerusahaan
                 {
                     this.Hide();
                     DataTable pobusid = new DataTable();
-                    sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "select pobus_id from po_bus where pobus_email = '"+tBoxEmail.Text+"'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(pobusid);
 

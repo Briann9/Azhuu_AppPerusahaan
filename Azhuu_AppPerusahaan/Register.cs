@@ -17,14 +17,16 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-
+        FormWelcome fWelcome;
         MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
-
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void FormRegister_Load(object sender, EventArgs e)
         {
             try
@@ -41,11 +43,11 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtcekemail = new DataTable();
                 sqlQuery = "select * from po_bus where pobus_email = '" + tBoxEmail.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtcekemail);
 
@@ -71,7 +73,7 @@ namespace Azhuu_AppPerusahaan
                 {
                     sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
 
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlConnect.Open();
                     sqlCommand.ExecuteNonQuery();
                     sqlConnect.Close();
@@ -131,12 +133,12 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     DataTable untukHurufDepan = new DataTable();
 
                     hurufdepan = tBoxNama.Text.Substring(0, 1).ToUpper();
                     sqlQuery = "select pobus_id, pobus_name from po_bus where pobus_name like '"+hurufdepan+"%'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(untukHurufDepan);
 
