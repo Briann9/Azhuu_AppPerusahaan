@@ -21,7 +21,7 @@ namespace Azhuu_AppPerusahaan
         //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
         string IDdelete;
@@ -50,7 +50,7 @@ namespace Azhuu_AppPerusahaan
                 sqlAdapter.Fill(dtV_List);
 
                 dgvVList.DataSource = dtV_List;
-            }
+            }   
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

@@ -52,7 +52,10 @@ namespace Azhuu_AppPerusahaan
                 this.Hide();
                 FormSignIn formSignIn = new FormSignIn();
                 formSignIn.init(this);
+                LandingPage landing = new LandingPage();
+                landing.init(this);
                 formSignIn.Show();
+
             }
             catch (Exception ex)
             {
