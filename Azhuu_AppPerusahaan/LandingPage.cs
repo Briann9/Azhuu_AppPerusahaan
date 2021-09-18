@@ -19,23 +19,27 @@ namespace Azhuu_AppPerusahaan
             InitializeComponent();
         }
 
-        
 
 
 
-        MySqlConnection sqlConnect;
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void LandingPage_Load(object sender, EventArgs e)
         {
-            sqlConnect = new MySqlConnection(connectString);
+            //sqlConnect = new MySqlConnection(connectString);
 
             DataTable dtProfile = new DataTable();
             sqlQuery = "select pobus_id, pobus_name, pobus_telp, pobus_email, pobus_address from po_bus where pobus_id = '"+FormWelcome.pobusid+"'";
-            sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+            sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtProfile);
 
@@ -51,11 +55,11 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtProfile = new DataTable();
                 sqlQuery = "select pobus_id, pobus_name, pobus_telp, pobus_email, pobus_address from po_bus where pobus_id = '" + FormWelcome.pobusid + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtProfile);
 
@@ -111,52 +115,52 @@ namespace Azhuu_AppPerusahaan
                 DialogResult dialogResult = MessageBox.Show("Apa anda yakin ingin menghapus akun anda?", "Hapus Akun", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
 
 
 
                     //delete transaksi_penumpang
                     sqlQuery = "DELETE FROM transaksi_penumpang WHERE tp_bookingid IN (select tp.tp_bookingid from transaksi_penumpang tp, pesan_transaksi pt, rute r, vehicle v where tp.TP_BOOKINGID = pt.TP_BOOKINGID and pt.RUTE_ID = r.RUTE_ID and r.V_ID = v.v_id and pobus_id = '"+FormWelcome.pobusid+"')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     //delete pesan_transaksi
                     sqlQuery = "DELETE FROM pesan_transaksi WHERE tp_bookingid IN (select tp_bookingid from pesan_transaksi pt, rute r, vehicle v where pt.RUTE_ID = r.RUTE_ID and r.V_ID = v.v_id and pobus_id = '"+FormWelcome.pobusid+"')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     //delete rute
                     sqlQuery = "DELETE FROM rute WHERE rute_id IN (select rute_id from rute r, vehicle v where r.V_ID = v.v_id and pobus_id = '"+FormWelcome.pobusid+"')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     // delete vehicle
                     sqlQuery = "DELETE FROM vehicle WHERE v_id IN (select v_id from vehicle v where pobus_id = '"+FormWelcome.pobusid+"')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     // delete airport_pobus
                     sqlQuery = "delete from airport_pobus where pobus_id = '"+FormWelcome.pobusid+"'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
 
                     // delete account
                     sqlQuery = "delete from po_bus where pobus_id = '" + tBoxID.Text + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     
                     MessageBox.Show("Akun Telah Di Hapus!");
@@ -208,10 +212,10 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
                 DataTable dtPOBUS = new DataTable();
                 sqlQuery = "select pobus_id, pobus_name, pobus_telp, pobus_email, POBUS_ADDRESS from po_bus where pobus_id = '"+FormWelcome.pobusid+"'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtPOBUS);
 
@@ -226,12 +230,12 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "update po_bus set pobus_name = '"+tBoxNama.Text+"', pobus_address = '"+tBoxAlamat.Text+"', pobus_telp = '"+tBoxNomorTlpn.Text+"', pobus_email = '"+tBoxEmail.Text+"' where pobus_id = '"+tBoxID.Text+"';";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
                     MessageBox.Show("Data sudah diubah!");
                 }
 

@@ -18,7 +18,6 @@ namespace Azhuu_AppPerusahaan
             InitializeComponent();
         }
         FormWelcome fWelcome;
-        MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
