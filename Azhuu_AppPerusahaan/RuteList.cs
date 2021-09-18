@@ -18,25 +18,30 @@ namespace Azhuu_AppPerusahaan
             InitializeComponent();
         }
 
-        MySqlConnection sqlConnect;
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
         string fromto = "F";
         string time = "00:00";
 
         string IDdelete = "";
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void RuteList_Load(object sender, EventArgs e)
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtListAirport = new DataTable();
                 sqlQuery = "select airport_id, concat('[',`airport_id`,']',`airport_name`) as `Airport` from airport";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListAirport);
 
@@ -48,7 +53,7 @@ namespace Azhuu_AppPerusahaan
 
                 DataTable dtListKendaraan = new DataTable();
                 sqlQuery = "select v_id, concat(v_brand, '  (',v_capacity,')  ', '[',v_license,']') as `Vehicle` from vehicle where pobus_id = '"+FormWelcome.pobusid+"'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListKendaraan);
 
@@ -79,12 +84,12 @@ namespace Azhuu_AppPerusahaan
                     string destina = tboxDestination.Text.Substring(0, 3).ToUpper();
                     string idd = "";
                     string pobuss = FormWelcome.pobusid.ToString();
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
 
 
                     DataTable dtjumlahrute = new DataTable();
                     sqlQuery = "select * from rute where airport_id = '"+cboxBandara.SelectedValue.ToString()+"' and rute_halte like '"+tboxDestination.Text+"%' and RUTE_FROMTO = '"+fromto+"'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtjumlahrute);
 
@@ -140,12 +145,12 @@ namespace Azhuu_AppPerusahaan
             try
             {
 
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtListRute = new DataTable();
 
                 sqlQuery = "select rute_id as `ID Rute`,concat(v_brand,'  /  ',v_jenis,'  [',v_capacity,']') as `Vehicle`, airport_id as `Airport`, if(rute_fromto = 'F','From','To') as `From or To`, rute_halte as `Destination`, RUTE_WAKTUBERANGKAT as `Time`, rute_price as `Harga` from rute r, vehicle v where v.pobus_id = '"+FormWelcome.pobusid+"' and r.v_id = v.v_id";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtListRute);
 
@@ -217,10 +222,10 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
                 DataTable cekrute = new DataTable();
                 sqlQuery = "select * from rute where airport_id = '"+ cboxBandara.SelectedValue.ToString() + "' and v_id = '"+cboxKendaraan.SelectedValue.ToString()+"' and rute_halte = '"+tboxDestination.Text+"' and rute_price = '"+tboxPrice.Text.ToString()+"' and rute_fromto = '"+fromto+"' and rute_waktuberangkat = '"+time+"'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(cekrute);
 
@@ -239,28 +244,28 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "insert into rute values ('"+tboxIDRute.Text+"','"+cboxBandara.SelectedValue.ToString()+"','"+cboxKendaraan.SelectedValue.ToString()+"','"+tboxDestination.Text+"','"+tboxPrice.Text+"','"+fromto+"','"+time+"','0')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
                     DataTable ceksudahada = new DataTable();
                     sqlQuery = "select * from airport_pobus where airport_id = '" + cboxBandara.SelectedValue.ToString() + "' and pobus_id = '" + FormWelcome.pobusid + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(ceksudahada);
 
                     if(ceksudahada.Rows.Count == 0)
                     {
                         sqlQuery = "insert into airport_pobus values ('" + cboxBandara.SelectedValue.ToString() + "','" + FormWelcome.pobusid + "')";
-                        sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                        sqlConnect.Open();
+                        sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                        fWelcome.conn.Open();
                         sqlCommand.ExecuteNonQuery();
-                        sqlConnect.Close();
+                        fWelcome.conn.Close();
                     }
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
 
                     refreshDGV();
 
@@ -277,7 +282,7 @@ namespace Azhuu_AppPerusahaan
             }
             catch (Exception ex)
             {
-                sqlConnect.Close();
+                fWelcome.conn.Close();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -321,12 +326,12 @@ namespace Azhuu_AppPerusahaan
 
 
 
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "delete from rute where rute_id = '" + IDdelete + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
                     MessageBox.Show("Route has been removed!");
                     IDdelete = "";
 
@@ -342,7 +347,7 @@ namespace Azhuu_AppPerusahaan
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                sqlConnect.Close();
+                fWelcome.conn.Close();
             }
         }
 

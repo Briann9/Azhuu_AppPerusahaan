@@ -17,13 +17,18 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-        MySqlConnection sqlConnect;
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
         string IDdelete;
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void VehicleList_Load(object sender, EventArgs e)
         {
             try
@@ -36,11 +41,11 @@ namespace Azhuu_AppPerusahaan
                 cboxType.SelectedIndex = -1;
 
 
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtV_List = new DataTable();
                 sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtV_List);
 
@@ -67,10 +72,10 @@ namespace Azhuu_AppPerusahaan
                 depanID = FormWelcome.pobusid.ToString(); // pobus +  V +  3angka urutan + C + kapasitas
 
 
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
                 DataTable untukIDkendaraan = new DataTable();
                 sqlQuery = "select v_id, v_capacity from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(untukIDkendaraan);
 
@@ -150,7 +155,7 @@ namespace Azhuu_AppPerusahaan
             {
                 DataTable dtPlate = new DataTable();
                 sqlQuery = "select v_license from vehicle where v_license = '" + tboxPlate.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtPlate);
 
@@ -167,18 +172,18 @@ namespace Azhuu_AppPerusahaan
                 }
                 else
                 {
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "insert into vehicle values ('" + tboxV_ID.Text + "','" + FormWelcome.pobusid + "','" + tboxPlate.Text + "','" + cboxType.SelectedItem + "','" + tboxCapacity.Text + "','" + tboxBrand.Text + "','0')";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
 
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
 
                     DataTable dtV_List = new DataTable();
                     sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtV_List);
 
@@ -226,18 +231,18 @@ namespace Azhuu_AppPerusahaan
 
 
 
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     sqlQuery = "delete from vehicle where v_id = '" + IDdelete + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
-                    sqlConnect.Open();
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
                     MessageBox.Show("Vehicle has been removed!");
                     IDdelete = "";
 
                     DataTable dtV_List = new DataTable();
                     sqlQuery = "select v_id as `Vehicle ID`, v_brand as `Brand`, v_jenis as `Type`, v_capacity as `Capacity`, v_license as `License Plate` from vehicle where pobus_id = '" + FormWelcome.pobusid + "'";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(dtV_List);
 
@@ -254,7 +259,7 @@ namespace Azhuu_AppPerusahaan
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                sqlConnect.Close();
+                fWelcome.conn.Close();
             }
         }
 

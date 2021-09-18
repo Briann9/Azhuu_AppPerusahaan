@@ -17,7 +17,7 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-
+        FormWelcome fWelcome;
         MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
@@ -27,6 +27,10 @@ namespace Azhuu_AppPerusahaan
         int cekdgvklik = 0;
         string ruteidddddd = "";
         string tanggalbookkk = "";
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void UpcomingTrip_Load(object sender, EventArgs e)
         {
             try

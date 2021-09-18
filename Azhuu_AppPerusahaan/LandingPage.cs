@@ -187,6 +187,7 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 var kendaraan = new VehicleList();
+                kendaraan.init(fWelcome);
                 kendaraan.ShowDialog();
             }
             catch (Exception ex)
@@ -198,12 +199,14 @@ namespace Azhuu_AppPerusahaan
         private void butRute_Click(object sender, EventArgs e)
         {
             var riti = new RuteList();
+            riti.init(fWelcome);
             riti.ShowDialog();
         }
 
         private void butUpcoming_Click(object sender, EventArgs e)
         {
             var ipcimingtrip = new UpcomingTrip();
+            ipcimingtrip.init(fWelcome);
             ipcimingtrip.ShowDialog();
         }
         

@@ -65,6 +65,7 @@ namespace Azhuu_AppPerusahaan
                 sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtpassword);
+                
 
                 if (dtpassword.Rows.Count == 1)
                 {
@@ -91,6 +92,7 @@ namespace Azhuu_AppPerusahaan
 
                     FormWelcome.pobusid = pobusid.Rows[0]["pobus_id"].ToString();
                     var landing = new LandingPage();
+                    landing.init(fWelcome);
                     landing.ShowDialog();
 
                 }

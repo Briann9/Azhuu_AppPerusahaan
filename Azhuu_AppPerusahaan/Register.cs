@@ -18,7 +18,7 @@ namespace Azhuu_AppPerusahaan
             InitializeComponent();
         }
         FormWelcome fWelcome;
-        MySqlConnection sqlConnect;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
         string sqlQuery;
@@ -74,9 +74,9 @@ namespace Azhuu_AppPerusahaan
                     sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
 
                     sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
-                    sqlConnect.Open();
+                    fWelcome.conn.Open();
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnect.Close();
+                    fWelcome.conn.Close();
                     MessageBox.Show("Selamat Register Berhasil!");
 
 
