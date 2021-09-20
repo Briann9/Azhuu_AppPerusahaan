@@ -17,12 +17,16 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-        MySqlConnection sqlConnect;
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
-
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void FormNewPassword_Load(object sender, EventArgs e)
         {
             try
@@ -36,10 +40,10 @@ namespace Azhuu_AppPerusahaan
                     // masih belom selesai, close semua form di sebelum ini
 
                     // ForgotPasswordEmail vt = new ForgotPasswordEmail();
-                    sqlConnect = new MySqlConnection(connectString);
+                    //sqlConnect = new MySqlConnection(connectString);
                     DataTable masuk1 = new DataTable();
-                    sqlQuery = "update user_azhuu set USER_PASSWORD = '" + tBoxPassword.Text + "' where USER_EMAIL = '" + FormForgotPassEmail.emailforgot + "' ";
-                    sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                    sqlQuery = "update po_bus set pobus_PASSWORD = '" + tBoxPassword.Text + "' where pobus_EMAIL = '" + FormForgotPassEmail.emailforgot + "' ";
+                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
                     sqlAdapter.Fill(masuk1);
 
@@ -62,6 +66,7 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 var pwnotelp = new FormForgotPassTlpn();
+                pwnotelp.init(fWelcome);
                 pwnotelp.ShowDialog();
             }
             catch (Exception ex)

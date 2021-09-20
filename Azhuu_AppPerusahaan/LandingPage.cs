@@ -256,6 +256,7 @@ namespace Azhuu_AppPerusahaan
                 this.Hide();
                 this.Close();
                 var welcomee = new FormWelcome();
+                
                 welcomee.ShowDialog();
             }
             catch (Exception ex)

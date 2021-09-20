@@ -84,6 +84,7 @@ namespace Azhuu_AppPerusahaan
                     //lempar ke landing page
                     this.Hide();
                     var login = new FormSignIn();
+                    login.init(fWelcome);
                     login.ShowDialog();
                 }
             }
@@ -99,6 +100,7 @@ namespace Azhuu_AppPerusahaan
             {
                 this.Hide();
                 FormSignIn formSignIn = new FormSignIn();
+                formSignIn.init(fWelcome);
                 formSignIn.Show();
             }
             catch (Exception ex)

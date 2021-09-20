@@ -267,7 +267,13 @@ namespace Azhuu_AppPerusahaan
         {
             this.Hide();
             var pwnotelp1 = new LandingPage();
+            pwnotelp1.init(fWelcome);
             pwnotelp1.ShowDialog();
+        }
+
+        private void cboxType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,13 +17,19 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-        MySqlConnection sqlConnect;
+
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
         public static string emailforgot = "";
 
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void FormForgotPassEmail_Load(object sender, EventArgs e)
         {
             try
@@ -40,10 +46,10 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
                 DataTable masuk = new DataTable();
                 sqlQuery = "select user_email from user_azhuu where user_email = '" + tBoxEmail.Text + "'";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(masuk);
 
@@ -57,6 +63,7 @@ namespace Azhuu_AppPerusahaan
                     emailforgot = tBoxEmail.Text;
 
                     var pwnotelp = new FormForgotPassTlpn();
+                    pwnotelp.init(fWelcome);
                     pwnotelp.ShowDialog();
                 }
             }
@@ -71,6 +78,7 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 var pwnotelp1 = new FormSignIn();
+                pwnotelp1.init(fWelcome);
                 pwnotelp1.ShowDialog();
             }
             catch (Exception ex)

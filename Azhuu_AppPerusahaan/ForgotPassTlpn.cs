@@ -17,13 +17,19 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-        MySqlConnection sqlConnect;
+        FormWelcome fWelcome;
+        //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
         MySqlDataAdapter sqlAdapter;
-        string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
+        //string connectString = "server=localhost;uid=root;pwd=;database=airport_shuttle;";
         string sqlQuery;
 
         string emailforgot = FormForgotPassEmail.emailforgot;
+
+        public void init(FormWelcome f)
+        {
+            fWelcome = f;
+        }
         private void FormForgotPassTlpn_Load(object sender, EventArgs e)
         {
             try
@@ -41,10 +47,10 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 //ForgotPasswordEmail fe = new ForgotPasswordEmail();
-                sqlConnect = new MySqlConnection(connectString);
+                //sqlConnect = new MySqlConnection(connectString);
                 DataTable masuk1 = new DataTable();
                 sqlQuery = "select * from user_azhuu where USER_TELP  = '" + tBoxNoTelp.Text + "' and USER_EMAIL = '" + emailforgot + "' ";
-                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(masuk1);
 
@@ -70,6 +76,7 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 var pwnotelp1 = new FormForgotPassEmail();
+                pwnotelp1.init(fWelcome);
                 pwnotelp1.ShowDialog();
 
             }

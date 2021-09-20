@@ -108,6 +108,7 @@ namespace Azhuu_AppPerusahaan
             try
             {
                 FormForgotPassEmail formForgotPassEmail = new FormForgotPassEmail();
+                formForgotPassEmail.init(fWelcome);
                 formForgotPassEmail.Show();
             }
             catch (Exception ex)
@@ -122,6 +123,7 @@ namespace Azhuu_AppPerusahaan
             {
                 this.Hide();
                 FormRegister formRegister = new FormRegister();
+                formRegister.init(fWelcome);
                 formRegister.Show();
             }
             catch (Exception ex)
