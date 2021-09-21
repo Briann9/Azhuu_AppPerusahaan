@@ -31,7 +31,12 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-
+                DataTable dtcek = new DataTable();
+                sqlQuery = "select * from po_bus ";
+                sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtcek);
+                dataGridView1Cek.DataSource = dtcek;
             }
             catch (Exception ex)
             {
@@ -46,10 +51,15 @@ namespace Azhuu_AppPerusahaan
                 //sqlConnect = new MySqlConnection(connectString);
 
                 DataTable dtcekemail = new DataTable();
-                sqlQuery = "select * from po_bus where pobus_email = '" + tBoxEmail.Text + "'";
+                sqlQuery = "call pCekEmail123('" + tBoxEmail.Text + "')";
+                //sqlQuery = "select * from po_bus where pobus_email = '" + tBoxEmail.Text + "'";
                 sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                 sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 sqlAdapter.Fill(dtcekemail);
+
+
+
+                
 
                 int ijinregister = 1;
 
@@ -58,7 +68,7 @@ namespace Azhuu_AppPerusahaan
                     labelError.Text = "Ada data yang kosong!";
                     ijinregister = 0;
                 }
-                else if (dtcekemail.Rows.Count == 1)
+                else if (dtcekemail.Rows[0][0].ToString() == "1")
                 {
                     labelError.Text = "Email sudah terdaftar";
                     ijinregister = 0;
@@ -71,12 +81,15 @@ namespace Azhuu_AppPerusahaan
 
                 if (ijinregister == 1)
                 {
-                    sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
 
-                    sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
-                    fWelcome.conn.Open();
+                    //sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
+
+                    MySqlCommand sqlCommand = new MySqlCommand();
+                    sqlCommand.CommandText = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
+                    //fWelcome.conn.Open();
+                    sqlCommand.Connection = fWelcome.conn;
                     sqlCommand.ExecuteNonQuery();
-                    fWelcome.conn.Close();
+                    //fWelcome.conn.Close();
                     MessageBox.Show("Selamat Register Berhasil!");
 
 
@@ -126,52 +139,59 @@ namespace Azhuu_AppPerusahaan
         {
             try
             {
-                
-                string hurufdepan;
 
-                if(string.IsNullOrEmpty(tBoxNama.Text))
+                //string hurufdepan;
+
+                if (string.IsNullOrEmpty(tBoxNama.Text))
                 {
                     tBoxID.Text = "";
                 }
                 else
                 {
-                    //sqlConnect = new MySqlConnection(connectString);
-                    DataTable untukHurufDepan = new DataTable();
-
-                    hurufdepan = tBoxNama.Text.Substring(0, 1).ToUpper();
-                    sqlQuery = "select pobus_id, pobus_name from po_bus where pobus_name like '"+hurufdepan+"%'";
+                    DataTable pobusID = new DataTable();
+                    sqlQuery = "select genIDPOBus('"+tBoxNama.Text+"');";
                     sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
                     sqlAdapter = new MySqlDataAdapter(sqlCommand);
-                    sqlAdapter.Fill(untukHurufDepan);
+                    sqlAdapter.Fill(pobusID);
+                    tBoxID.Text = pobusID.Rows[0][0].ToString();
 
-                    
-                    int jumlahrows = untukHurufDepan.Rows.Count - 1;
-                    if(jumlahrows == -1)
-                    {
-                        tBoxID.Text = hurufdepan + "001";
-                    }
-                    else
-                    {
-                        string idterakhir = untukHurufDepan.Rows[jumlahrows]["pobus_id"].ToString();
-                        int angkaterakhir = Convert.ToInt32(idterakhir.Substring(1, 3)) + 1;
+                    //sqlConnect = new MySqlConnection(connectString);
+                    //DataTable untukHurufDepan = new DataTable(); 
 
-                        if (untukHurufDepan.Rows.Count < 10)
-                        {
-                            hurufdepan += "00";
-                            hurufdepan += angkaterakhir;
-                        }
-                        else if (untukHurufDepan.Rows.Count >= 10 && untukHurufDepan.Rows.Count < 100)
-                        {
-                            hurufdepan += "0";
-                            hurufdepan += angkaterakhir;
-                        }
-                        else if (untukHurufDepan.Rows.Count >= 100)
-                        {
-                            hurufdepan += angkaterakhir;
-                        }
-                        tBoxID.Text = hurufdepan;
-                    }
-                    
+                    //hurufdepan = tBoxNama.Text.Substring(0, 1).ToUpper();
+                    //sqlQuery = "select pobus_id, pobus_name from po_bus where pobus_name like '" + hurufdepan + "%'";
+                    //sqlCommand = new MySqlCommand(sqlQuery, fWelcome.conn);
+                    //sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                    //sqlAdapter.Fill(untukHurufDepan);
+
+
+                    //int jumlahrows = untukHurufDepan.Rows.Count - 1;
+                    //if (jumlahrows == -1)
+                    //{
+                    //    tBoxID.Text = hurufdepan + "001";
+                    //}
+                    //else
+                    //{
+                    //    string idterakhir = untukHurufDepan.Rows[jumlahrows]["pobus_id"].ToString();
+                    //    int angkaterakhir = Convert.ToInt32(idterakhir.Substring(1, 3)) + 1;
+
+                    //    if (untukHurufDepan.Rows.Count < 10)
+                    //    {
+                    //        hurufdepan += "00";
+                    //        hurufdepan += angkaterakhir;
+                    //    }
+                    //    else if (untukHurufDepan.Rows.Count >= 10 && untukHurufDepan.Rows.Count < 100)
+                    //    {
+                    //        hurufdepan += "0";
+                    //        hurufdepan += angkaterakhir;
+                    //    }
+                    //    else if (untukHurufDepan.Rows.Count >= 100)
+                    //    {
+                    //        hurufdepan += angkaterakhir;
+                    //    }
+                    //    tBoxID.Text = hurufdepan;
+                    //}
+
                 }
             }
             catch (Exception ex)

@@ -62,6 +62,7 @@ namespace Azhuu_AppPerusahaan
                 {
                     this.Hide();
                     var pwnew = new FormNewPassword();
+                    pwnew.init(fWelcome);
                     pwnew.ShowDialog();
                 }
             }

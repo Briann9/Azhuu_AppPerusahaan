@@ -18,10 +18,6 @@ namespace Azhuu_AppPerusahaan
         {
             InitializeComponent();
         }
-
-
-
-
         FormWelcome fWelcome;
         //MySqlConnection sqlConnect;
         MySqlCommand sqlCommand;
@@ -258,6 +254,20 @@ namespace Azhuu_AppPerusahaan
                 var welcomee = new FormWelcome();
                 
                 welcomee.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void butTransaksiTerlaris_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var pwnotelp4 = new FormTransaksiTerlaris();
+                pwnotelp4.init(fWelcome);
+                pwnotelp4.ShowDialog();
             }
             catch (Exception ex)
             {

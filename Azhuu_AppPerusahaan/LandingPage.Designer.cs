@@ -44,8 +44,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.butDelete = new System.Windows.Forms.Button();
             this.butSave = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.butSignOut = new System.Windows.Forms.Button();
+            this.butTransaksiTerlaris = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,17 +213,6 @@
             this.butSave.UseVisualStyleBackColor = false;
             this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._3423432;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1270, 687);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 59;
-            this.pictureBox1.TabStop = false;
-            // 
             // butSignOut
             // 
             this.butSignOut.BackColor = System.Drawing.Color.LightCoral;
@@ -234,11 +224,34 @@
             this.butSignOut.UseVisualStyleBackColor = false;
             this.butSignOut.Click += new System.EventHandler(this.butSignOut_Click);
             // 
+            // butTransaksiTerlaris
+            // 
+            this.butTransaksiTerlaris.BackColor = System.Drawing.Color.White;
+            this.butTransaksiTerlaris.Location = new System.Drawing.Point(92, 533);
+            this.butTransaksiTerlaris.Name = "butTransaksiTerlaris";
+            this.butTransaksiTerlaris.Size = new System.Drawing.Size(163, 46);
+            this.butTransaksiTerlaris.TabIndex = 61;
+            this.butTransaksiTerlaris.Text = "Informasi";
+            this.butTransaksiTerlaris.UseVisualStyleBackColor = false;
+            this.butTransaksiTerlaris.Click += new System.EventHandler(this.butTransaksiTerlaris_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._3423432;
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1270, 687);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
+            // 
             // LandingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.butTransaksiTerlaris);
             this.Controls.Add(this.butSignOut);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.butDelete);
@@ -286,5 +299,6 @@
         private System.Windows.Forms.Button butSave;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button butSignOut;
+        private System.Windows.Forms.Button butTransaksiTerlaris;
     }
 }
