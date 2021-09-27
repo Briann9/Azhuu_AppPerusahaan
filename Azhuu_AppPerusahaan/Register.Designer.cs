@@ -49,9 +49,7 @@ namespace Azhuu_AppPerusahaan
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1Cek = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1Cek)).BeginInit();
             this.SuspendLayout();
             // 
             // tBoxID
@@ -60,7 +58,7 @@ namespace Azhuu_AppPerusahaan
             this.tBoxID.Enabled = false;
             this.tBoxID.ForeColor = System.Drawing.Color.Black;
             this.tBoxID.Location = new System.Drawing.Point(854, 261);
-            this.tBoxID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxID.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxID.Name = "tBoxID";
             this.tBoxID.Size = new System.Drawing.Size(127, 20);
             this.tBoxID.TabIndex = 0;
@@ -69,7 +67,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxNama.ForeColor = System.Drawing.Color.Black;
             this.tBoxNama.Location = new System.Drawing.Point(855, 302);
-            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNama.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNama.Name = "tBoxNama";
             this.tBoxNama.Size = new System.Drawing.Size(282, 20);
             this.tBoxNama.TabIndex = 1;
@@ -79,7 +77,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxEmail.ForeColor = System.Drawing.Color.Black;
             this.tBoxEmail.Location = new System.Drawing.Point(855, 349);
-            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxEmail.Name = "tBoxEmail";
             this.tBoxEmail.Size = new System.Drawing.Size(282, 20);
             this.tBoxEmail.TabIndex = 2;
@@ -88,7 +86,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxNomorTlpn.ForeColor = System.Drawing.Color.Black;
             this.tBoxNomorTlpn.Location = new System.Drawing.Point(855, 400);
-            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxNomorTlpn.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxNomorTlpn.Name = "tBoxNomorTlpn";
             this.tBoxNomorTlpn.Size = new System.Drawing.Size(282, 20);
             this.tBoxNomorTlpn.TabIndex = 3;
@@ -98,7 +96,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxAlamat.ForeColor = System.Drawing.Color.Black;
             this.tBoxAlamat.Location = new System.Drawing.Point(855, 452);
-            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxAlamat.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxAlamat.Name = "tBoxAlamat";
             this.tBoxAlamat.Size = new System.Drawing.Size(282, 20);
             this.tBoxAlamat.TabIndex = 4;
@@ -107,7 +105,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxPassword.ForeColor = System.Drawing.Color.Black;
             this.tBoxPassword.Location = new System.Drawing.Point(855, 501);
-            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxPassword.Name = "tBoxPassword";
             this.tBoxPassword.Size = new System.Drawing.Size(282, 20);
             this.tBoxPassword.TabIndex = 5;
@@ -117,7 +115,7 @@ namespace Azhuu_AppPerusahaan
             // 
             this.tBoxConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tBoxConfirmPassword.Location = new System.Drawing.Point(855, 553);
-            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tBoxConfirmPassword.Name = "tBoxConfirmPassword";
             this.tBoxConfirmPassword.Size = new System.Drawing.Size(282, 20);
             this.tBoxConfirmPassword.TabIndex = 6;
@@ -128,7 +126,7 @@ namespace Azhuu_AppPerusahaan
             this.buttonRegister.BackColor = System.Drawing.Color.White;
             this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegister.Location = new System.Drawing.Point(918, 600);
-            this.buttonRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(163, 26);
             this.buttonRegister.TabIndex = 8;
@@ -245,27 +243,18 @@ namespace Azhuu_AppPerusahaan
             // 
             this.pictureBox1.Image = global::Azhuu_AppPerusahaan.Properties.Resources._12QW;
             this.pictureBox1.Location = new System.Drawing.Point(-2, -6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1270, 700);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1Cek
-            // 
-            this.dataGridView1Cek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1Cek.Location = new System.Drawing.Point(93, 100);
-            this.dataGridView1Cek.Name = "dataGridView1Cek";
-            this.dataGridView1Cek.Size = new System.Drawing.Size(633, 473);
-            this.dataGridView1Cek.TabIndex = 49;
-            // 
             // FormRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.dataGridView1Cek);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -286,12 +275,11 @@ namespace Azhuu_AppPerusahaan
             this.Controls.Add(this.tBoxNama);
             this.Controls.Add(this.tBoxID);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormRegister";
             this.Text = "Register";
             this.Load += new System.EventHandler(this.FormRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1Cek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +307,5 @@ namespace Azhuu_AppPerusahaan
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1Cek;
     }
 }

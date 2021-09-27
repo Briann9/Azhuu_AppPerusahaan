@@ -82,14 +82,11 @@ namespace Azhuu_AppPerusahaan
                 if (ijinregister == 1)
                 {
 
-                    //sqlQuery = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
-
+                    
                     MySqlCommand sqlCommand = new MySqlCommand();
                     sqlCommand.CommandText = "insert into po_bus values ('" + tBoxID.Text + "','" + tBoxNama.Text + "','" + tBoxNomorTlpn.Text + "','" + tBoxEmail.Text + "','" + tBoxConfirmPassword.Text + "','" + tBoxAlamat.Text + "','0')";
-                    //fWelcome.conn.Open();
                     sqlCommand.Connection = fWelcome.conn;
                     sqlCommand.ExecuteNonQuery();
-                    //fWelcome.conn.Close();
                     MessageBox.Show("Selamat Register Berhasil!");
 
 
